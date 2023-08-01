@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etienne's Résumé</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="img/favicon/site.webmanifest">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bangers&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">
+
+    <script src="js/blink.js" defer></script>
+    <script src="js/favorite.js" defer></script>
+    <script src="js/hamburger.js" defer></script>
+    <script src="js/header.js" defer></script>
+    <script src="js/language.js"></script>
+    <script src="js/modal.js" defer></script>
+    <script src="js/skills.js" defer></script>
+    <script src="js/tooltips.js" defer></script>
+    <script src="js/utility.js" defer></script>
+</head>
+<body>
+<div class="hamburger-menu">
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+<div class="off-canvas-menu">
+    <nav>
+        <ul>
+            <li><a href="#about" data-en="About" data-fr="À propos">About</a></li>
+            <li><a href="#skills" data-en="Skills" data-fr="Compétences">Skills</a></li>
+            <li><a href="#experience" data-en="Experience" data-fr="Expérience">Experience</a></li>
+            <li><a href="#education" data-en="Education" data-fr="Education">Education</a></li>
+            <li><a href="#interests" data-en="Interests" data-fr="Intérêts">Interests</a></li>
+            <li><a href="#contact" data-en="Contact" data-fr="Coordonnées">Contact</a></li>
+        </ul>
+    </nav>
+</div>
+<header>
+    <div class="header-container" id="header-container">
+        <div class="header-title">
+            <h1 class="name" id="header-name">Etienne Boursault</h1>
+            <h2 class="title" id="header-title">Full Stack Engineer</h2>
+            <button id="addToFavorites" class="favorite-btn web-only" aria-label="Add to favorites">
+                <span class="empty-star">☆</span>
+                <span class="filled-star">⭐</span>
+            </button>
+            <div id="dialog-bubble" class="dialog-bubble" hidden>
+                <div class="dialog-bubble-content">
+                    <p id="dialog-message" class="dialog-message"></p>
+                    <button id="dialog-close" class="dialog-close">Close</button>
+                </div>
+            </div>
+        </div>
+        <div class="language-switcher">
+            <img src="img/en-flag.png" alt="EN" onclick="switchLanguage('en')">
+            <img src="img/fr-flag.png" alt="FR" onclick="switchLanguage('fr')">
+        </div>
+    </div>
+    <nav class="web-nav">
+        <ul>
+            <li><a href="#about" data-en="About" data-fr="À propos">About</a></li>
+            <li><a href="#skills" data-en="Skills" data-fr="Compétences">Skills</a></li>
+            <li><a href="#experience" data-en="Experience" data-fr="Expérience">Experience</a></li>
+            <li><a href="#education" data-en="Education" data-fr="Education">Education</a></li>
+            <li><a href="#interests" data-en="Interests" data-fr="Intérêts">Interests</a></li>
+            <li><a href="#contact" data-en="Contact" data-fr="Coordonnées">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section id="about">
+        <h2 data-en="About Me" data-fr="À propos de moi">About Me</h2>
+        <p data-en="I'm a software developer with experience in Java, JavaScript, and Python. I enjoy working on web and
+         mobile applications and have a strong passion for learning new technologies and frameworks."
+           data-fr="Je suis développeur de logiciels avec une expérience en Java, JavaScript et Python. J'aime
+            travailler sur des applications Web et mobiles et je suis passionné par l'apprentissage de nouvelles
+             technologies et frameworks.">
+            I'm a software developer with experience in Java, JavaScript, and PHP. I enjoy working on web and mobile
+            applications and have a strong passion for learning new technologies and frameworks.
+        </p>
+    </section>
+
+    <section id="skills">
+        <h2 id="skills-title" data-en="Skills" data-fr="Compétences">Skills</h2>
+        <div class="skills-filter">
+            <button class="filter-button web-only" data-category="frontend" onclick="filterSkills('frontend')">Front-end</button>
+            <button class="filter-button web-only" data-category="backend" onclick="filterSkills('backend')">Back-end</button>
+            <button class="filter-button web-only" data-category="design" onclick="filterSkills('design')" data-en="Design" data-fr="Conception">Design</button>
+            <button class="filter-button web-only" data-category="tools" onclick="filterSkills('tools')" data-en="Tools" data-fr="Outils">Tools</button>
+        </div>
+        <div class="main-skills-filter web-only">
+            <button class="filter-button" onclick="filterMainSkills('web-only')">Main skills</button>
+        </div>
+
+        <div class="skills-list">
+            <!-- Add your skills with appropriate data-category attribute -->
+            <span class="skill main-skill" data-category="backend" data-skill="java" data-level="95" data-text="JAVA" data-filetype="png">
+                <img src="img/logo/java.png" alt="JAVA" width="32" height="32">
+            </span>
+            <span class="skill main-skill" data-category="backend" data-skill="spring" data-level="95" data-text="Spring" data-filetype="svg">
+                <img src="img/logo/spring.svg" alt="Spring" width="32" height="32">
+            </span>
+            <span class="skill main-skill" data-category="backend" data-skill="springBoot" data-level="60" data-text="SpringBoot" data-filetype="png">
+                <img src="img/logo/springboot.png" alt="SpringBoot" width="32" height="32">
+            </span>
+            <span class="skill web-only" data-category="backend" data-skill="Hibernate" data-level="60" data-text="Hibernate" data-filetype="png">
+                <img src="img/logo/hibernate.png" alt="Hibernate" width="32" height="32">
+            </span>
+            <span class="skill web-only" data-category="backend" data-skill="JPA" data-level="60" data-text="JPA" data-filetype="">
+                <img src="" alt="JPA" width="32" height="32">
+            </span>
+            <span class="skill web-only" data-category="backend" data-skill="MicroServices" data-level="55" data-text="MicroServices" data-filetype="jpg">
+                <img src="img/logo/microservices.jpg" alt="MicroServices" width="32" height="32">
+            </span>
+            <span class="skill main-skill" data-category="backend" data-skill="RestAPI" data-level="70" data-text="RestAPI" data-filetype="jpg">
+                <img src="img/logo/restAPI.jpg" alt="RestAPI" width="32" height="32">
+            </span>
+            <span class="skill web-only" data-category="backend" data-skill="Maven" data-level="65" data-text="Maven" data-filetype="svg">
+                <img src="img/logo/maven.svg" alt="Maven" width="32" height="32">
+            </span>
+            <span class="skill main-skill" data-category="frontend" data-skill="HTML" data-level="85" data-text="HTML" data-filetype="png">
+                <img src="img/logo/html.png" alt="HTML" width="32" height="32">
+            </span>
+            <span class="skill main-skill" data-category="frontend" data-skill="CSS" data-level="80" data-text="CSS" data-filetype="png">
+                <img src="img/logo/css.png" alt="CSS" width="32" height="32">
+            </span>
+            <span class="skill main-skill" data-category="frontend" data-skill="JavaScript" data-level="80" data-text="JavaScript" data-filetype="png">
+                <img src="img/logo/javascript.png" alt="JavaScript" width="32" height="32">
+            </span>
+            <span class="skill main-skill" data-category="frontend" data-skill="TypeScript" data-level="60" data-text="TypeScript" data-filetype="png">
+                <img src="img/logo/typescript.png" alt="TypeScript" width="32" height="32">
+            </span>
+            <span class="skill web-only" data-category="frontend" data-skill="Angular" data-level="65" data-text="Angular" data-filetype="svg">
+                <img src="img/logo/angular.svg" alt="Angular" width="32" height="32">
+            </span>
+            <span class="skill web-only" data-category="frontend" data-skill="AJAX" data-level="60" data-text="AJAX" data-filetype="svg">
+                <img class="logo-default" src="img/logo/ajax.svg" alt="AJAX" width="32" height="32">
+                <img class="logo-hover" src="img/logo/Ajax_Amsterdam.svg" alt="AJAX" width="32" height="32">
+            </span>
+            <span class="skill web-only" data-category="frontend" data-skill="Jquery" data-level="50" data-text="Jquery" data-filetype="svg">
+                <img src="img/logo/jquery.svg" alt="Jquery" width="32" height="32">
+            </span>
+            <span class="skill web-only" data-category="frontend" data-skill="D3js" data-level="30" data-text="D3.js" data-filetype="svg">
+                <img src="img/logo/d3js.svg" alt="D3.js" width="32" height="32">
+            </span>
+            <span class="skill web-only" data-category="frontend" data-skill="RxJs" data-level="40" data-text="RxJs" data-filetype="png">
+                <img src="img/logo/RxJS.png" alt="RxJs" width="32" height="32">
+            </span>
+            <span class="skill web-only" data-category="backend" data-skill="Python" data-level="30" data-text="Python" data-filetype="png">
+                <img src="img/logo/python.png" alt="Python" width="32" height="32">
+            </span>
+            <span class="skill web-only" data-category="backend" data-skill="PHP" data-level="55" data-text="PHP" data-filetype="png">
+                <img src="img/logo/php.png" alt="PHP" width="32" height="32">
+            </span>
+            <span class="skill web-only" data-category="backend" data-skill="SOAPUI" data-level="50" data-text="SOAPUI" data-filetype="png">
+                <img src="img/logo/soapui.png" alt="SOAPUI" width="32" height="32">
+            </span>
+            <span class="skill web-only" data-category="backend" data-skill="Kotlin" data-level="20" data-text="Kotlin" data-filetype="png">
+                <img src="img/logo/kotlin.png" alt="Kotlin" width="32" height="32">
+            </span>
+            <span class="skill web-only" data-category="design" data-skill="UI/UX Design" data-level="20" data-text="Design" data-filetype="png">
+                <img src="img/logo/ui_ux.png" alt="UI/UX Design" width="32" height="32">
+            </span>
+            <span class="skill main-skill" data-category="tools" data-skill="Docker" data-level="35" data-text="Docker" data-filetype="svg">
+                <img src="img/logo/docker.svg" alt="Docker" width="32" height="32">
+            </span>
+            <span class="skill web-only" data-category="tools" data-skill="API" data-level="50" data-text="API" data-filetype="png">
+                <img src="img/logo/api.png" alt="API" width="32" height="32">
+            </span>
+            <span class="skill web-only" data-category="tools" data-skill="Linux" data-level="55" data-text="Linux-Unix" data-filetype="svg">
+                <img src="img/logo/linux.svg" alt="Linux-Unix" width="32" height="32">
+            </span>
+            <span class="skill web-only" data-category="tools" data-skill="Bash" data-level="40" data-text="Bash" data-filetype="svg">
+                <img src="img/logo/bash.svg" alt="Bash" width="32" height="32">
+            </span>
+            <span class="skill web-only" data-category="tools" data-skill="Shell" data-level="40" data-text="Shell" data-filetype="png">
+                <img src="img/logo/shell.png" alt="Shell" width="32" height="32">
+            </span>
+            <span class="skill web-only" data-category="tools" data-skill="MarkDown" data-level="30" data-text="MarkDown" data-filetype="svg">
+                <img src="img/logo/markdown.svg" alt="MarkDown" width="32" height="32">
+            </span>
+            <span class="skill web-only" data-category="tools" data-skill="Talend" data-level="60" data-text="Talend" data-filetype="svg">
+                <img src="img/logo/talend.svg" alt="Talend" width="32" height="32">
+            </span>
+            <span class="skill web-only" data-category="tools" data-skill="ETL" data-level="55" data-text="ETL" data-filetype="">
+                <img src="" alt="ETL" width="32" height="32">
+            </span>
+            <span class="skill web-only" data-category="tools" data-skill="Drupal" data-level="50" data-text="Drupal" data-filetype="svg">
+                <img src="img/logo/drupal.svg" alt="Drupal" width="32" height="32">
+            </span>
+            <span class="skill web-only" data-category="tools" data-skill="CICD" data-level="50" data-text="CI/CD" data-filetype="png">
+                <img src="img/logo/cicd.png" alt="CI/CD" width="32" height="32">
+            </span>
+            <span class="skill main-skill" data-category="tools" data-skill="Git" data-level="90" data-text="Git" data-filetype="svg">
+                <img src="img/logo/git.svg" alt="Git" width="32" height="32">
+            </span>
+            <span class="skill web-only" data-category="tools" data-skill="GitHub" data-level="70" data-text="GitHub" data-filetype="svg">
+                <img src="img/logo/github.svg" alt="GitHub" width="32" height="32">
+            </span>
+            <span class="skill web-only" data-category="tools" data-skill="GitLab" data-level="70" data-text="Gitlab" data-filetype="svg">
+                <img src="img/logo/gitlab.svg" alt="Gitlab" width="32" height="32">
+            </span>
+            <span class="skill web-only" data-category="tools" data-skill="Sonar" data-level="60" data-text="Sonar" data-filetype="">
+                <img src="" alt="Sonar" width="32" height="32">
+            </span>
+            <span class="skill web-only" data-category="tools" data-skill="SonarQube" data-level="60" data-text="SonarQube" data-filetype="svg">
+                <img src="img/logo/sonarqube.svg" alt="SonarQube" width="32" height="32">
+            </span>
+            <span class="skill web-only" data-category="tools" data-skill="Cucumber" data-level="20" data-text="Cucumber" data-filetype="svg">
+                <img src="img/logo/cucumber.svg" alt="Cucumber" width="32" height="32">
+            </span>
+            <span class="skill web-only" data-category="tools" data-skill="Jenkins" data-level="55" data-text="Jenkins" data-filetype="svg">
+                <img src="img/logo/jenkins.svg" alt="Jenkins" width="32" height="32">
+            </span>
+            <span class="skill web-only" data-category="tools" data-skill="IntelliJ" data-level="80" data-text="IntelliJ" data-filetype="svg">
+                <img src="img/logo/intellij.svg" alt="IntelliJ" width="32" height="32">
+            </span>
+            <span class="skill web-only" data-category="tools" data-skill="Eclipse" data-level="70" data-text="Eclipse" data-filetype="svg">
+                <img src="img/logo/eclipse.svg" alt="Eclipse" width="32" height="32">
+            </span>
+            <span class="skill web-only" data-category="tools" data-skill="AWS" data-level="10" data-text="AWS" data-filetype="svg">
+                <img src="img/logo/aws.svg" alt="AWS" width="32" height="32">
+            </span>
+            <span class="skill web-only" data-category="tools" data-skill="Serverless" data-level="5" data-text="Serverless" data-filetype="png">
+                <img src="img/logo/serverless.png" alt="Serverless" width="32" height="32">
+            </span>
+            <span class="skill web-only" data-category="tools" data-skill="Kubernetes" data-level="5" data-text="Kubernetes" data-filetype="svg">
+                <img src="img/logo/kubernetes.svg" alt="Kubernetes" width="32" height="32">
+            </span>
+            <span class="skill web-only" data-category="tools" data-skill="Postman" data-level="35" data-text="Postman" data-filetype="svg">
+                <img src="img/logo/postman.svg" alt="Postman" width="32" height="32">
+            </span>
+            <span class="skill web-only" data-category="tools" data-skill="Apache" data-level="40" data-text="Apache" data-filetype="svg">
+                <img src="img/logo/apache.svg" alt="Apache" width="32" height="32">
+            </span>
+            <span class="skill web-only" data-category="tools" data-skill="VMWare" data-level="50" data-text="VMWare" data-filetype="svg">
+                <img src="img/logo/vmware.svg" alt="VMWare" width="32" height="32">
+            </span>
+            <span class="skill web-only" data-category="design" data-skill="TDD" data-level="65" data-text="TDD" data-filetype="">
+                <img src="" alt="TDD" width="32" height="32">
+            </span>
+            <span class="skill web-only" data-category="design" data-skill="BDD" data-level="45" data-text="BDD" data-filetype="">
+                <img src="" alt="BDD" width="32" height="32">
+            </span>
+            <span class="skill web-only" data-category="design" data-skill="SOLID" data-level="40" data-text="SOLID" data-filetype="">
+                <img src="" alt="SOLID" width="32" height="32">
+            </span>
+            <!-- To add a skill copy this block and replace by your info
+            Be careful, you need to use existing data category or create new ones in the skills.js file
+            <span class="skill web-only" data-category="design" data-skill="SOLID" data-level="40" data-text="SOLID" data-filetype="">
+                <img src="" alt="SOLID" width="32" height="32">
+            </span>
+            -->
+        </div>
+    </section>
+
+    <!-- In the "experience" section -->
+    <section id="experience">
+        <h2 id="experience-title" data-en="Experience" data-fr="Expérience">Experience</h2>
+        <div class="experience-and-skills">
+            <div class="experience-list">
+                <div class="experience-item" data-skills="Kotlin, Spring, Vue.js, Java, PostgreSQL">
+                    <button class="experience-title" onclick="toggleExperience(this)"
+                            data-en="Full Stack Developer at Fairphone (Start Date — May 2023)"
+                            data-fr="Développeur Full Stack chez Fairphone (Date de début — Mai 2023)">
+                        Full Stack Developer at Fairphone (Start Date — May 2023)
+                    </button>
+                    <div class="experience-details">
+                        <ul>
+                            <li data-en="Develop internal applications (microservices) of the Fairphone IT landscape systems using Kotlin, Spring, Vue.js, Java, PostgreSQL" data-fr="Développer des applications internes (microservices) du paysage informatique Fairphone en utilisant Kotlin, Spring, Vue.js, Java, PostgreSQL"></li>
+                            <li data-en="Troubleshoot code and process-level problems efficiently" data-fr="Résoudre efficacement les problèmes de code et de processus"></li>
+                            <li data-en="Collaborate with internal stakeholders to identify business requirements and develop microservices or other applications to support those requirements" data-fr="Collaborer avec les parties prenantes internes pour identifier les besoins de l'entreprise et développer des microservices ou d'autres applications pour répondre à ces besoins"></li>
+                        </ul>
+                        <div class="experience-skills">
+                            <span class="skill experience-skill" data-category="backend">Kotlin</span>
+                            <span class="skill experience-skill" data-category="backend">Spring</span>
+                            <span class="skill experience-skill" data-category="frontend">Vue.js</span>
+                            <span class="skill experience-skill" data-category="backend">Java</span>
+                            <span class="skill experience-skill" data-category="backend">PostgreSQL</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="experience-item" data-skills="Angular, TypeScript, HTML, CSS, Spring, Java 11">
+                    <button class="experience-title" onclick="toggleExperience(this)"
+                            data-en="Full Stack Developer at KLEE GROUP (March 2022 — March 2023)"
+                            data-fr="Développeur Full Stack chez KLEE GROUP (Mars 2022 — Mars 2023)">
+                        Full Stack Developer at KLEE GROUP (March 2022 — March 2023)
+                    </button>
+                    <div class="experience-details">
+                        <ul>
+                            <li data-en="Build front-end features using Angular 14, TypeScript, HTML, CSS, and develop back-end features with Spring, Java 11" data-fr="Construire des fonctionnalités front-end en utilisant Angular 14, TypeScript, HTML, CSS, et développer des fonctionnalités back-end avec Spring, Java 11"></li>
+                            <li data-en="Implement quality software best practices BDD to test, and fix bugs" data-fr="Mettre en œuvre les meilleures pratiques de logiciel de qualité BDD pour tester et corriger les bugs"></li>
+                            <li data-en="Contribute effectively discussed complex topics in a Proxy Agile environment" data-fr="Contribuer efficacement à discuter de sujets complexes dans un environnement Agile Proxy"></li>
+                            <li data-en="Engineer Spring/Angular solution to allow tracking and preventing vector-borne diseases, achieve by enabling 5000 users to track and record data through the web application" data-fr="Ingénieur en solution Spring/Angular pour permettre le suivi et la prévention des maladies à transmission vectorielle, réalisé en permettant à 5000 utilisateurs de suivre et d'enregistrer des données via l'application web"></li>
+                        </ul>
+                        <div class="experience-skills">
+                            <span class="skill experience-skill" data-category="frontend">Angular</span>
+                            <span class="skill experience-skill" data-category="backend">Java</span>
+                            <span class="skill experience-skill" data-category="backend">Spring</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="experience-item" data-skills="Angular 6, Spring, Smarty, Java 8, PHP 7.4, JavaScript, HTML5, CSS3">
+                    <button class="experience-title" onclick="toggleExperience(this)"
+                            data-en="Junior Full Stack Developer at SOPRA STERIA (September 2019—March 2022)"
+                            data-fr="Développeur Full Stack Junior chez SOPRA STERIA (Septembre 2019—Mars 2022)">
+                        Junior Full Stack Developer at SOPRA STERIA (September 2019—March 2022)
+                    </button>
+                    <div class="experience-details">
+                        <ul>
+                            <li data-en="Collaborated in a fully remote and Agile environment with 3-week sprints while exercising CI/CD, pairing, code review, BDD to build, and ship new features from scratch using Angular 6, Spring, Smarty, Java 8, PHP 7.4, JavaScript, HTML5, CSS3" data-fr="Collaboré dans un environnement entièrement distant et Agile avec des sprints de 3 semaines tout en exerçant CI/CD, pairing, code review, BDD pour construire et expédier de nouvelles fonctionnalités à partir de zéro en utilisant Angular 6, Spring, Smarty, Java 8, PHP 7.4, JavaScript, HTML5, CSS3"></li>
+                            <!-- Add more list items here -->
+                        </ul>
+                        <div class="experience-skills">
+                            <span class="skill experience-skill" data-category="frontend">Angular</span>
+                            <span class="skill experience-skill" data-category="backend">Java</span>
+                            <span class="skill experience-skill" data-category="backend">Spring</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="experience-item" data-skills="Project Management, LEAN Management">
+                    <button class="experience-title" onclick="toggleExperience(this)"
+                            data-en="Engineer Project Manager at FPSA GROUPE (2016—2018)"
+                            data-fr="Ingénieur Chef de Projet chez FPSA GROUPE (2016—2018)">
+                        Engineer Project Manager at FPSA GROUPE (2016—2018)
+                    </button>
+                    <div class="experience-details">
+                        <ul>
+                            <li data-en="Oversaw 20 automotive projects, led an international team with a budget of 4 million €" data-fr="A supervisé 20 projets automobiles, dirigé une équipe internationale avec un budget de 4 millions €"></li>
+                            <li data-en="Reinforced and drove successful practices of the company’s LEAN Management" data-fr="A renforcé et conduit les pratiques réussies du LEAN Management de l'entreprise"></li>
+                        </ul>
+                        <div class="experience-skills">
+                            <span class="skill experience-skill" data-category="tools">Project Management</span>
+                            <span class="skill experience-skill" data-category="tools">LEAN Management</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- To add an experience copy this block and replace by your info
+                <div class="experience-item" data-skills="Project Management, LEAN Management">
+                    <button class="experience-title" onclick="toggleExperience(this)"
+                            data-en="Engineer Project Manager at FPSA GROUPE (2016—2018)"
+                            data-fr="Ingénieur Chef de Projet chez FPSA GROUPE (2016—2018)">
+                        Engineer Project Manager at FPSA GROUPE (2016—2018)
+                    </button>
+                    <div class="experience-details">
+                        <ul>
+                            <li data-en="Oversaw 20 automotive projects, led an international team with a budget of 4 million €" data-fr="A supervisé 20 projets automobiles, dirigé une équipe internationale avec un budget de 4 millions €"></li>
+                            <li data-en="Reinforced and drove successful practices of the company’s LEAN Management" data-fr="A renforcé et conduit les pratiques réussies du LEAN Management de l'entreprise"></li>
+                        </ul>
+                        <div class="experience-skills">
+                            <span class="skill experience-skill" data-category="tools">Project Management</span>
+                            <span class="skill experience-skill" data-category="tools">LEAN Management</span>
+                        </div>
+                    </div>
+                </div>
+                -->
+            </div>
+        </div>
+    </section>
+
+    <!-- In the "education" section -->
+    <section id="education">
+        <h2 id="education-title">Education</h2>
+        <div class="education">
+            <div class="education-item">
+                <button class="education-title" onclick="toggleEducation(this)"
+                        data-en="Full Stack Boot camp - GROUPE ADAMING, Nantes, FR (2019)"
+                        data-fr="Formation Intensive Full Stack - GROUPE ADAMING, Nantes, FR (2019)">
+                    Full Stack Boot camp - GROUPE ADAMING, Nantes, FR (2019)
+                </button>
+                <!-- Hide this div initially with CSS -->
+                <div class="education-details">
+                    <ul>
+                        <li data-en="UML" data-fr="UML"></li>
+                        <li data-en="JAVA, Spring" data-fr="JAVA, Spring"></li>
+                        <li data-en="JPA/ORM (Hibernate) and SQL (SGBD)" data-fr="JPA/ORM (hibernate) et SGBD (SQL)"></li>
+                        <li data-en="Front-end: HTML, CSS, Bootstrap, JavaScript/TypeScript, Angular 7" data-fr="Front end : HTML, CSS, Bootstrap, Javascript/Typescript, Angular 7"></li>
+                        <li data-en="JUNIT" data-fr="JUNIT"></li>
+                        <li data-en="Git/GitHub, Sonar, Jenkins, Maven" data-fr="Git/GitHub, Sonar, Jenkins, Maven"></li>
+                        <li data-en="IDE: Eclipse, Mysql Workbench" data-fr="IDE : Eclipse, Mysql Workbench"></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="education-item">
+                <button class="education-title" onclick="toggleEducation(this)"
+                        data-en="Polymer and Composites Engineer - ÉCOLE DES MINES DE DOUAI, Alençon, FR (2011—2016)"
+                        data-fr="Ingénieur en Polymères et Composites - ÉCOLE DES MINES DE DOUAI, Alençon, FR (2011—2016)">
+                    Polymer and Composites Engineer - ÉCOLE DES MINES DE DOUAI, Alençon, FR (2011—2016)
+                </button>
+                <!-- Hide this div initially with CSS -->
+                <div class="education-details">
+                    <ul>
+                        <li data-en="Polymer and Composites Engineering" data-fr="Ingénierie polymère et composites"></li>
+                        <li data-en="HR Resource Management skills" data-fr="Compétence de management des ressources humaines"></li>
+                        <li data-en="Industrial Organization methods (Lean Manufacturing, 5S, SMED, AMDEC, JIT, Takt-Time)" data-fr="Méthode d'organisation industrielle (Lean Manufacturing, 5S, SMED, AMDEC, JIT, Takt-Time)"></li>
+                        <li data-en="Study of thermoplastic materials and their interactions with the environment" data-fr="Étude des matériaux thermoplastiques et de leurs interactions avec leurs environnements"></li>
+                        <li data-en="Rheology" data-fr="Rhéologie"></li>
+                        <li data-en="Material analysis methods" data-fr="Méthodes d'analyse des matériaux"></li>
+                        <li data-en="Design of thermoplastic tools and parts" data-fr="Conception d'outillages et de pièces thermoplastique"></li>
+                        <li data-en="Thermoplastic injection tooling design" data-fr="Conception d'outillage d'injection plastique"></li>
+                        <li data-en="Adjustment of thermoplastic injection presses" data-fr="Réglage de presse à injecter thermoplastique"></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- To add an eduction copy this block and replace by your info
+            <div class="education-item">
+                <button class="education-title" onclick="toggleEducation(this)"
+                        data-en="Polymer and Composites Engineer - ÉCOLE DES MINES DE DOUAI, Alençon, FR (2011—2016)"
+                        data-fr="Ingénieur en Polymères et Composites - ÉCOLE DES MINES DE DOUAI, Alençon, FR (2011—2016)">
+                    Polymer and Composites Engineer - ÉCOLE DES MINES DE DOUAI, Alençon, FR (2011—2016)
+                </button>
+                &lt;!&ndash; Hide this div initially with CSS &ndash;&gt;
+                <div class="education-details">
+                    <ul>
+                        <li data-en="Polymer and Composites Engineering" data-fr="Ingénierie polymère et composites"></li>
+                        <li data-en="HR Resource Management skills" data-fr="Compétence de management des ressources humaines"></li>
+                        <li data-en="Industrial Organization methods (Lean Manufacturing, 5S, SMED, AMDEC, JIT, Takt-Time)" data-fr="Méthode d'organisation industrielle (Lean Manufacturing, 5S, SMED, AMDEC, JIT, Takt-Time)"></li>
+                        <li data-en="Study of thermoplastic materials and their interactions with the environment" data-fr="Étude des matériaux thermoplastiques et de leurs interactions avec leurs environnements"></li>
+                        <li data-en="Rheology" data-fr="Rhéologie"></li>
+                        <li data-en="Material analysis methods" data-fr="Méthodes d'analyse des matériaux"></li>
+                        <li data-en="Design of thermoplastic tools and parts" data-fr="Conception d'outillages et de pièces thermoplastique"></li>
+                        <li data-en="Thermoplastic injection tooling design" data-fr="Conception d'outillage d'injection plastique"></li>
+                        <li data-en="Adjustment of thermoplastic injection presses" data-fr="Réglage de presse à injecter thermoplastique"></li>
+                    </ul>
+                </div>
+            </div>
+            -->
+        </div>
+    </section>
+
+    <!-- In the "interests" section -->
+    <section id="interests">
+        <h2 id="interests-title"  data-en="Interests" data-fr="Intérêts">Interests</h2>
+        <div class="interests">
+            <div class="interests-item">
+                <img src="img/interest/astro.png" alt="Astronomy" data-en="Astronomy" data-fr="Astronomie">
+                <p data-en="Astronomy" data-fr="Astronomie">Astronomy</p>
+            </div>
+            <div class="interests-item">
+                <img src="img/interest/squash.png" alt="Squash">
+                <p><a href="https://sportconnexions.com/en/squash/allinnsquash/12/Connect?userid=136216" target="_blank" data-en="Squash" data-fr="Squash">Squash</a></p>
+            </div>
+            <div class="interests-item">
+                <img src="img/interest/github.png" alt="GitHub">
+                <p><a href="https://github.com/Etienne-Boursault" target="_blank" data-en="GitHub" data-fr="GitHub">GitHub</a></p>
+            </div>
+            <div class="interests-item">
+                <img src="img/interest/gitlab.png" alt="GitLab">
+                <p><a href="https://gitlab.com/Etienne-Boursault" target="_blank" data-en="GitLab" data-fr="GitLab">GitLab</a></p>
+            </div>
+            <div class="interests-item">
+                <img src="img/interest/book.png" alt="Reading" data-en="Reading" data-fr="Lecture">
+                <p data-en="Reading" data-fr="Lecture">Reading</p>
+            </div>
+            <div class="interests-item">
+                <img src="img/interest/run.png" alt="Running" data-en="Running" data-fr="Course">
+                <p data-en="Running" data-fr="Course">Running</p>
+            </div>
+            <div class="interests-item">
+                <img src="img/interest/cook.png" alt="Cooking" data-en="Cooking" data-fr="Cuisine">
+                <p data-en="Cooking" data-fr="Cuisine">Cooking</p>
+            </div>
+            <div class="interests-item">
+                <img src="img/interest/travel.png" alt="Travelling" data-en="Travelling" data-fr="Voyage">
+                <p data-en="Travelling" data-fr="Voyage">Travelling</p>
+            </div>
+            <div class="interests-item">
+                <img src="img/interest/coffee.png" alt="Coffee" data-en="Coffee" data-fr="Café">
+                <p data-en="Coffee" data-fr="Café">Coffee</p>
+            </div>
+            <!-- To add an interest: copy this tile
+            <div class="interests-item">
+                <img src="img/interest/coffee.png" alt="Coffee" data-en="Coffee" data-fr="Café">
+                <p data-en="Coffee" data-fr="Café">Coffee</p>
+            </div>
+            -->
+        </div>
+    </section>
+
+    <div class="download-resume download-resume-en">
+        <a href="\file\pdf\Etienne_Boursault-Résumé.pdf" download>Download Resume (PDF)</a>
+    </div>
+    <div class="download-resume download-resume-fr" hidden>
+        <a href="#" download>Télécharger le CV (pas disponible pour le moment)</a>
+    </div>
+
+    <div id="stillHereModal" class="modal">
+        <div class="modal-content">
+            <div class="name-container">
+                <img src="img/netflix/etienne_netflix_big.png" alt="Etienne" class="name-image-desktop">
+                <img src="img/netflix/etienne_netflix_mobile.png" alt="Etienne" class="name-image-mobile">
+            </div>
+            <h3 class="are-you-still-there" data-en="Are you still there?" data-fr="Toujours là ?">Are you still there?</h3>
+            <button id="yesBtn" class="keep-reading-btn" data-en="Keep reading" data-fr="Continuer à lire">Keep reading</button>
+            <button id="noBtn" class="leaving-btn" data-en="Leaving" data-fr="Partir">Leaving</button>
+            <h3 id="leavingMessage" hidden data-en="Hope to see you soon!" data-fr="À bientôt !">Hope to see you soon!</h3>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <section id="contact">
+        <h2 data-en="Contact" data-fr="Coordonnées">Contact</h2>
+        <p data-en="If you have any questions or would like to get in touch, feel free to email me at "
+           data-fr="Si vous avez des questions ou souhaitez me contacter, merci de m'envoyer un mail à ">
+            If you have any questions or would like to get in touch, feel free to email me at
+        </p>
+        <p>
+            <a href="mailto:etienne.boursault@live.fr">etienne.boursault@live.fr</a>.
+        </p>
+        <p data-en="&copy; 2023 Etienne Boursault. All rights reserved."
+           data-fr="&copy; 2023 Etienne Boursault. Tous droits réservés">
+            &copy; 2023 Etienne Boursault. All rights reserved.
+        </p>
+        <!-- LinkedIn Logo and Link -->
+        <a href="https://www.linkedin.com/in/eboursault/" target="_blank" id="linkedin-logo">
+            <img src="img/social/linkedin.png" alt="LinkedIn Logo" />
+        </a>
+    </section>
+</footer>
+</body>
+</html>
