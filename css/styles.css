@@ -65,6 +65,7 @@ header {
     justify-content: center;
     align-items: baseline;
     font-size: 15px;
+    position: relative;
 }
 header .name {
     font-size: 1.9rem;
@@ -310,6 +311,7 @@ section h2 {
 }
 #experience {
     padding: 20px;
+    background-color: #E0F2FF;
 }
 .experience-and-skills {
     display: flex;
@@ -379,9 +381,6 @@ section h2 {
 #experience-title {
     color: #007BFF;
 }
-#experience {
-    background-color: #E0F2FF;
-}
 #education .education-title {
     background-color: #FF9900;
 }
@@ -450,7 +449,7 @@ footer p {
 #linkedin-logo {
     position: absolute;
     right: 3%;
-    bottom: 10%;
+    top: 10%;
 }
 #linkedin-logo img {
     width: 64px;
@@ -583,6 +582,21 @@ footer p {
         padding: 8px 16px;
         width: 80%;
         font-family: 'Roboto', sans-serif;
+    }
+    .experience-details, .experience-skills, .experience-details ul,
+    .education-details, .education-details ul {
+        width: 100%;
+    }
+
+    .experience-skills {
+        float: none;
+        position: static;
+        text-align: left;
+        margin-bottom: 10px;
+    }
+
+    .experience-details {
+        clear: both;
     }
 }
 @media (min-width: 768px) {
@@ -735,9 +749,6 @@ footer p {
 }
 .favorite-btn[data-added="true"] .filled-star {
     display: none;
-}
-.header-title {
-    position: relative;
 }
 .dialog-bubble {
     display: none;
