@@ -23,4 +23,16 @@ document.addEventListener("DOMContentLoaded", function() {
             hamburgerMenu.classList.remove("active");
         }
     });
+
+    // Get all the links inside the off-canvas menu
+    const menuLinks = offCanvasMenu.querySelectorAll("a");
+
+    // Add a click event listener to each link
+    menuLinks.forEach(function(link) {
+        link.addEventListener("click", function() {
+            // On mobile, when a link is clicked, remove the "active" class from both menus
+            offCanvasMenu.classList.remove("active");
+            hamburgerMenu.classList.remove("active");
+        });
+    });
 });
