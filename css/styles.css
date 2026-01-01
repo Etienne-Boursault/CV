@@ -339,10 +339,12 @@ section h2 {
     outline: none;
 }
 .experience-details, .education-details {
-    display: none;
     position: relative;
     vertical-align: top;
     padding: 10px;
+}
+.experience-details[hidden], .education-details[hidden] {
+    display: none;
 }
 .experience-details ul, .education-details ul {
     flex: 1;
@@ -456,6 +458,9 @@ footer p {
     height: 64px;
 }
 .hamburger-menu {
+    background: transparent;
+    border: none;
+    padding: 0;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -466,6 +471,10 @@ footer p {
     left: 15px;
     z-index: 102;
     cursor: pointer;
+}
+.hamburger-menu:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 4px;
 }
 .hamburger-menu span {
     display: block;

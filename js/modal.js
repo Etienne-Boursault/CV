@@ -42,7 +42,7 @@ noBtn.addEventListener("click", () => {
 
     setTimeout(() => {
         stillHereModal.style.display = "none";
-        window.close();
+        resetModalTimeout();
     }, 5 * 1000);
 });
 

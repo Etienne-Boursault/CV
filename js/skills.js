@@ -86,17 +86,22 @@ skillElements.forEach((skill) => {
 // The function toggleExperience() is defined. It takes a button as an argument.
 // It toggles the visibility of the experience details related to the button clicked.
 function toggleExperience(button) {
-    const experienceDetails = button.nextElementSibling;
-    experienceDetails.style.display = experienceDetails.style.display === 'block' ? 'none' : 'block';
-
     const details = button.nextElementSibling;
+    if (!details) {return}
     const experienceItem = button.parentElement;
+    const isExpanded = button.getAttribute('aria-expanded') === 'true';
+    const newState = !isExpanded;
 
-    details.classList.toggle("active");
+    button.setAttribute('aria-expanded', String(newState));
+    details.hidden = !newState;
+    details.classList.toggle("active", newState);
 
-    if (details.classList.contains("active")) {
-        displaySkills(experienceItem.dataset.skills);
-        highlightSkills(experienceItem.dataset.skills);
+    if (newState && experienceItem) {
+        const skills = experienceItem.dataset.skills;
+        if (skills) {
+            displaySkills(skills);
+            highlightSkills(skills);
+        }
     } else {
         clearHighlightedSkills();
     }
@@ -105,7 +110,12 @@ function toggleExperience(button) {
 // Similar to toggleExperience, toggleEducation() toggles the visibility of education details.
 function toggleEducation(button) {
     const educationDetails = button.nextElementSibling;
-    educationDetails.style.display = educationDetails.style.display === 'block' ? 'none' : 'block';
+    if (!educationDetails) {return}
+    const isExpanded = button.getAttribute('aria-expanded') === 'true';
+    const newState = !isExpanded;
+
+    button.setAttribute('aria-expanded', String(newState));
+    educationDetails.hidden = !newState;
 }
 
 // highlightSkills() is defined to add the CSS class "highlighted-skill" to specific skills.

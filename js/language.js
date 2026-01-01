@@ -90,6 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.dispatchEvent(languageSwitchEvent);
 
     // Add event listeners for navigation links
+    const navLinks = document.querySelectorAll('nav a');
     navLinks.forEach((link) => {
         link.addEventListener('click', (e) => {
             e.preventDefault();

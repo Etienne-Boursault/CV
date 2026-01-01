@@ -20,7 +20,7 @@ navLinks.forEach((link) => {
 
         // Reset linkClicked flag after the scroll animation is finished
         setTimeout(() => {
-            let linkClicked = false;
+            linkClicked = false;
         }, 1000);
     });
 });
