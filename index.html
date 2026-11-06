@@ -1,532 +1,315 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Etienne's R&eacute;sum&eacute;</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
-    <link rel="manifest" href="img/favicon/site.webmanifest">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bangers&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">
-
-    <script src="js/blink.js" defer></script>
-    <script src="js/favorite.js" defer></script>
-    <script src="js/hamburger.js" defer></script>
-    <script src="js/header.js" defer></script>
-    <script src="js/language.js" defer></script>
-    <script src="js/modal.js" defer></script>
-    <script src="js/skills.js" defer></script>
-    <script src="js/tooltips.js" defer></script>
-    <script src="js/utility.js" defer></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Étienne Boursault · Développeur full stack</title>
+<meta name="description" content="Développeur full stack chez Fairphone à Amsterdam (Kotlin, Vue.js, TypeScript), basé à Utrecht. Ingénieur en polymères et composites de 2011 à 2018, spécialisé en injection thermoplastique ; développeur depuis 2019.">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Étienne Boursault · Développeur full stack">
+<meta property="og:description" content="Ingénieur en polymères et composites de 2011 à 2018, développeur full stack depuis 2019, aujourd'hui chez Fairphone.">
+<meta property="og:url" content="https://etienne-boursault.github.io/CV/">
+<meta name="theme-color" content="#f6f5f0" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#10263f" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="img/favicon/favicon.ico" sizes="32x32">
+<link rel="icon" href="img/favicon/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="img/favicon/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="css/cv.css">
+<script>
+  // Langue d'arrivée avant le premier affichage : choix explicite (?lang= ou bouton), sinon le navigateur.
+  (function () {
+    var l = null, th = null;
+    try { l = new URLSearchParams(location.search).get("lang") || localStorage.getItem("cv-langue"); th = localStorage.getItem("cv-theme"); } catch (e) {}
+    if (l !== "fr" && l !== "en") l = /^fr\b/i.test((navigator.languages && navigator.languages[0]) || navigator.language || "") ? "fr" : "en";
+    document.documentElement.lang = l;
+    if (th === "light" || th === "dark") document.documentElement.setAttribute("data-theme", th);
+  })();
+</script>
+<script src="js/cv.js" defer></script>
 </head>
 <body>
-<button class="hamburger-menu" type="button" aria-label="Open navigation menu" aria-controls="offCanvasMenu" aria-expanded="false">
-    <span></span>
-    <span></span>
-    <span></span>
-</button>
-<div class="off-canvas-menu" id="offCanvasMenu" aria-hidden="true">
-    <nav>
-        <ul>
-            <li><a href="#about" data-en="About" data-fr="&Agrave; propos">About</a></li>
-            <li><a href="#skills" data-en="Skills" data-fr="Comp&eacute;tences">Skills</a></li>
-            <li><a href="#experience" data-en="Experience" data-fr="Exp&eacute;rience">Experience</a></li>
-            <li><a href="#education" data-en="Education" data-fr="Education">Education</a></li>
-            <li><a href="#interests" data-en="Interests" data-fr="Int&eacute;r&ecirc;ts">Interests</a></li>
-            <li><a href="#contact" data-en="Contact" data-fr="Coordonn&eacute;es">Contact</a></li>
-        </ul>
+<a class="evitement" href="#contenu"><span lang="fr">Aller au contenu</span><span lang="en">Skip to content</span></a>
+
+<header class="barre">
+  <a class="g" href="#haut"><span class="monogramme" aria-hidden="true">ÉB</span><span class="qui">Étienne Boursault</span></a>
+  <div class="d">
+    <nav class="nav" aria-label="Sections">
+      <a href="#projet"><span lang="fr">projet</span><span lang="en">project</span></a><a href="#experience"><span lang="fr">parcours</span><span lang="en">experience</span></a><a href="#ia"><span lang="fr">ia</span><span lang="en">ai</span></a><a href="#competences"><span lang="fr">compétences</span><span lang="en">skills</span></a><a href="#contact">contact</a>
     </nav>
-</div>
-<header>
-    <div class="header-container" id="header-container">
-        <div class="header-title">
-            <h1 class="name" id="header-name">Etienne Boursault</h1>
-            <h2 class="title" id="header-title">Full Stack Engineer</h2>
-            <button id="addToFavorites" class="favorite-btn web-only" aria-label="Add to favorites">
-                <span class="empty-star">&#9734;</span>
-                <span class="filled-star">&#11088;</span>
-            </button>
-            <div id="dialog-bubble" class="dialog-bubble" hidden>
-                <div class="dialog-bubble-content">
-                    <p id="dialog-message" class="dialog-message"></p>
-                    <button id="dialog-close" class="dialog-close">Close</button>
-                </div>
-            </div>
-        </div>
-        <div class="language-switcher">
-            <img src="img/en-flag.png" alt="EN" onclick="switchLanguage('en')">
-            <img src="img/fr-flag.png" alt="FR" onclick="switchLanguage('fr')">
-        </div>
+    <div class="outils">
+      <div class="langue" role="group" aria-label="Langue / Language"><button type="button" data-l="fr" aria-pressed="true">FR</button><button type="button" data-l="en" aria-pressed="false">EN</button></div>
+      <button class="icone" type="button" id="son" aria-pressed="false">
+        <span class="sr"><span lang="fr">Son</span><span lang="en">Sound</span></span>
+        <svg class="off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="m22 9-6 6m0-6 6 6"/></svg>
+        <svg class="on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></svg>
+      </button>
+      <button class="icone" type="button" id="theme"><span class="sr"><span lang="fr">Changer de thème</span><span lang="en">Switch theme</span></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 4a8 8 0 0 1 0 16z" fill="currentColor"/></svg></button>
+      <button class="icone menu-btn" type="button" id="menu-btn" aria-expanded="false" aria-controls="menu"><span class="sr">Menu</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg></button>
     </div>
-    <nav class="web-nav">
-        <ul>
-            <li><a href="#about" data-en="About" data-fr="&Agrave; propos">About</a></li>
-            <li><a href="#skills" data-en="Skills" data-fr="Comp&eacute;tences">Skills</a></li>
-            <li><a href="#experience" data-en="Experience" data-fr="Exp&eacute;rience">Experience</a></li>
-            <li><a href="#education" data-en="Education" data-fr="Education">Education</a></li>
-            <li><a href="#interests" data-en="Interests" data-fr="Int&eacute;r&ecirc;ts">Interests</a></li>
-            <li><a href="#contact" data-en="Contact" data-fr="Coordonn&eacute;es">Contact</a></li>
-        </ul>
-    </nav>
+  </div>
+  <div class="menu" id="menu">
+    <a href="#projet"><span lang="fr">projet</span><span lang="en">project</span></a><a href="#experience"><span lang="fr">parcours</span><span lang="en">experience</span></a><a href="#ia"><span lang="fr">ia</span><span lang="en">ai</span></a><a href="#competences"><span lang="fr">compétences</span><span lang="en">skills</span></a><a href="#contact">contact</a>
+  </div>
 </header>
 
-<main>
-    <section id="about">
-        <h2 data-en="About Me" data-fr="&#192; propos de moi">About Me</h2>
-        <p data-en="I'm a software developer with experience in Java, JavaScript, and Python. I enjoy working on web and
-         mobile applications and have a strong passion for learning new technologies and frameworks."
-           data-fr="Je suis d&#233;veloppeur de logiciels avec une exp&#233;rience en Java, JavaScript et Python. J'aime
-            travailler sur des applications Web et mobiles et je suis passionn&#233; par l'apprentissage de nouvelles
-             technologies et frameworks.">
-            I'm a software developer with experience in Java, JavaScript, and PHP. I enjoy working on web and mobile
-            applications and have a strong passion for learning new technologies and frameworks.
-        </p>
-    </section>
+<main id="haut">
+  <!-- En-tête du PDF : n'apparaît qu'à l'impression -->
+  <div class="impr-tete">
+    <p class="impr-nom">Étienne Boursault</p>
+    <p class="impr-role"><span lang="fr">Développeur full stack · ingénieur en polymères et composites de formation</span><span lang="en">Full stack developer · trained as a polymer and composites engineer</span></p>
+    <p class="impr-liens"><span lang="fr">Utrecht, Pays-Bas</span><span lang="en">Utrecht, the Netherlands</span> · etienne.boursault@live.fr · linkedin.com/in/eboursault · github.com/Etienne-Boursault · etienne-boursault.github.io/CV</p>
+  </div>
 
-    <section id="skills">
-        <h2 id="skills-title" data-en="Skills" data-fr="Comp&eacute;tences">Skills</h2>
-        <div class="skills-filter">
-            <button class="filter-button web-only" data-category="frontend" onclick="filterSkills('frontend')">Front-end</button>
-            <button class="filter-button web-only" data-category="backend" onclick="filterSkills('backend')">Back-end</button>
-            <button class="filter-button web-only" data-category="design" onclick="filterSkills('design')" data-en="Design" data-fr="Conception">Design</button>
-            <button class="filter-button web-only" data-category="tools" onclick="filterSkills('tools')" data-en="Tools" data-fr="Outils">Tools</button>
-        </div>
-        <div class="main-skills-filter web-only">
-            <button class="filter-button" onclick="filterMainSkills('web-only')">Main skills</button>
-        </div>
-
-        <div class="skills-list">
-            <!-- Add your skills with appropriate data-category attribute -->
-            <span class="skill main-skill" data-category="backend" data-skill="java" data-level="95" data-text="JAVA" data-filetype="png">
-                <img src="img/logo/java.png" alt="JAVA" width="32" height="32">
-            </span>
-            <span class="skill main-skill" data-category="backend" data-skill="spring" data-level="95" data-text="Spring" data-filetype="svg">
-                <img src="img/logo/spring.svg" alt="Spring" width="32" height="32">
-            </span>
-            <span class="skill main-skill" data-category="backend" data-skill="springBoot" data-level="60" data-text="SpringBoot" data-filetype="png">
-                <img src="img/logo/springboot.png" alt="SpringBoot" width="32" height="32">
-            </span>
-            <span class="skill web-only" data-category="backend" data-skill="Hibernate" data-level="60" data-text="Hibernate" data-filetype="png">
-                <img src="img/logo/hibernate.png" alt="Hibernate" width="32" height="32">
-            </span>
-            <span class="skill web-only" data-category="backend" data-skill="JPA" data-level="60" data-text="JPA" data-filetype="">
-                JPA
-            </span>
-            <span class="skill web-only" data-category="backend" data-skill="MicroServices" data-level="55" data-text="MicroServices" data-filetype="jpg">
-                <img src="img/logo/microservices.jpg" alt="MicroServices" width="32" height="32">
-            </span>
-            <span class="skill main-skill" data-category="backend" data-skill="RestAPI" data-level="70" data-text="RestAPI" data-filetype="jpg">
-                <img src="img/logo/restAPI.jpg" alt="RestAPI" width="32" height="32">
-            </span>
-            <span class="skill web-only" data-category="backend" data-skill="Maven" data-level="65" data-text="Maven" data-filetype="svg">
-                <img src="img/logo/maven.svg" alt="Maven" width="32" height="32">
-            </span>
-            <span class="skill main-skill" data-category="frontend" data-skill="HTML" data-level="85" data-text="HTML" data-filetype="png">
-                <img src="img/logo/html.png" alt="HTML" width="32" height="32">
-            </span>
-            <span class="skill main-skill" data-category="frontend" data-skill="CSS" data-level="80" data-text="CSS" data-filetype="png">
-                <img src="img/logo/css.png" alt="CSS" width="32" height="32">
-            </span>
-            <span class="skill main-skill" data-category="frontend" data-skill="JavaScript" data-level="80" data-text="JavaScript" data-filetype="png">
-                <img src="img/logo/javascript.png" alt="JavaScript" width="32" height="32">
-            </span>
-            <span class="skill main-skill" data-category="frontend" data-skill="TypeScript" data-level="60" data-text="TypeScript" data-filetype="png">
-                <img src="img/logo/typescript.png" alt="TypeScript" width="32" height="32">
-            </span>
-            <span class="skill web-only" data-category="frontend" data-skill="Angular" data-level="65" data-text="Angular" data-filetype="svg">
-                <img src="img/logo/angular.svg" alt="Angular" width="32" height="32">
-            </span>
-            <span class="skill web-only" data-category="frontend" data-skill="AJAX" data-level="60" data-text="AJAX" data-filetype="svg">
-                <img class="logo-default" src="img/logo/ajax.svg" alt="AJAX" width="32" height="32">
-                <img class="logo-hover" src="img/logo/Ajax_Amsterdam.svg" alt="AJAX" width="32" height="32">
-            </span>
-            <span class="skill web-only" data-category="frontend" data-skill="Jquery" data-level="50" data-text="Jquery" data-filetype="svg">
-                <img src="img/logo/jquery.svg" alt="Jquery" width="32" height="32">
-            </span>
-            <span class="skill web-only" data-category="frontend" data-skill="D3js" data-level="30" data-text="D3.js" data-filetype="svg">
-                <img src="img/logo/d3js.svg" alt="D3.js" width="32" height="32">
-            </span>
-            <span class="skill web-only" data-category="frontend" data-skill="RxJs" data-level="40" data-text="RxJs" data-filetype="png">
-                <img src="img/logo/RxJS.png" alt="RxJs" width="32" height="32">
-            </span>
-            <span class="skill web-only" data-category="backend" data-skill="Python" data-level="30" data-text="Python" data-filetype="png">
-                <img src="img/logo/python.png" alt="Python" width="32" height="32">
-            </span>
-            <span class="skill web-only" data-category="backend" data-skill="PHP" data-level="55" data-text="PHP" data-filetype="png">
-                <img src="img/logo/php.png" alt="PHP" width="32" height="32">
-            </span>
-            <span class="skill web-only" data-category="backend" data-skill="SOAPUI" data-level="50" data-text="SOAPUI" data-filetype="png">
-                <img src="img/logo/soapui.png" alt="SOAPUI" width="32" height="32">
-            </span>
-            <span class="skill web-only" data-category="backend" data-skill="Kotlin" data-level="20" data-text="Kotlin" data-filetype="png">
-                <img src="img/logo/kotlin.png" alt="Kotlin" width="32" height="32">
-            </span>
-            <span class="skill web-only" data-category="design" data-skill="UI/UX Design" data-level="20" data-text="Design" data-filetype="png">
-                <img src="img/logo/ui_ux.png" alt="UI/UX Design" width="32" height="32">
-            </span>
-            <span class="skill main-skill" data-category="tools" data-skill="Docker" data-level="35" data-text="Docker" data-filetype="svg">
-                <img src="img/logo/docker.svg" alt="Docker" width="32" height="32">
-            </span>
-            <span class="skill web-only" data-category="tools" data-skill="API" data-level="50" data-text="API" data-filetype="png">
-                <img src="img/logo/api.png" alt="API" width="32" height="32">
-            </span>
-            <span class="skill web-only" data-category="tools" data-skill="Linux" data-level="55" data-text="Linux-Unix" data-filetype="svg">
-                <img src="img/logo/linux.svg" alt="Linux-Unix" width="32" height="32">
-            </span>
-            <span class="skill web-only" data-category="tools" data-skill="Bash" data-level="40" data-text="Bash" data-filetype="svg">
-                <img src="img/logo/bash.svg" alt="Bash" width="32" height="32">
-            </span>
-            <span class="skill web-only" data-category="tools" data-skill="Shell" data-level="40" data-text="Shell" data-filetype="png">
-                <img src="img/logo/shell.png" alt="Shell" width="32" height="32">
-            </span>
-            <span class="skill web-only" data-category="tools" data-skill="MarkDown" data-level="30" data-text="MarkDown" data-filetype="svg">
-                <img src="img/logo/markdown.svg" alt="MarkDown" width="32" height="32">
-            </span>
-            <span class="skill web-only" data-category="tools" data-skill="Talend" data-level="60" data-text="Talend" data-filetype="svg">
-                <img src="img/logo/talend.svg" alt="Talend" width="32" height="32">
-            </span>
-            <span class="skill web-only" data-category="tools" data-skill="ETL" data-level="55" data-text="ETL" data-filetype="">
-                ETL
-            </span>
-            <span class="skill web-only" data-category="tools" data-skill="Drupal" data-level="50" data-text="Drupal" data-filetype="svg">
-                <img src="img/logo/drupal.svg" alt="Drupal" width="32" height="32">
-            </span>
-            <span class="skill web-only" data-category="tools" data-skill="CICD" data-level="50" data-text="CI/CD" data-filetype="png">
-                <img src="img/logo/cicd.png" alt="CI/CD" width="32" height="32">
-            </span>
-            <span class="skill main-skill" data-category="tools" data-skill="Git" data-level="90" data-text="Git" data-filetype="svg">
-                <img src="img/logo/git.svg" alt="Git" width="32" height="32">
-            </span>
-            <span class="skill web-only" data-category="tools" data-skill="GitHub" data-level="70" data-text="GitHub" data-filetype="svg">
-                <img src="img/logo/github.svg" alt="GitHub" width="32" height="32">
-            </span>
-            <span class="skill web-only" data-category="tools" data-skill="GitLab" data-level="70" data-text="Gitlab" data-filetype="svg">
-                <img src="img/logo/gitlab.svg" alt="Gitlab" width="32" height="32">
-            </span>
-            <span class="skill web-only" data-category="tools" data-skill="Sonar" data-level="60" data-text="Sonar" data-filetype="">
-                Sonar
-            </span>
-            <span class="skill web-only" data-category="tools" data-skill="SonarQube" data-level="60" data-text="SonarQube" data-filetype="svg">
-                <img src="img/logo/sonarqube.svg" alt="SonarQube" width="32" height="32">
-            </span>
-            <span class="skill web-only" data-category="tools" data-skill="Cucumber" data-level="20" data-text="Cucumber" data-filetype="svg">
-                <img src="img/logo/cucumber.svg" alt="Cucumber" width="32" height="32">
-            </span>
-            <span class="skill web-only" data-category="tools" data-skill="Jenkins" data-level="55" data-text="Jenkins" data-filetype="svg">
-                <img src="img/logo/jenkins.svg" alt="Jenkins" width="32" height="32">
-            </span>
-            <span class="skill web-only" data-category="tools" data-skill="IntelliJ" data-level="80" data-text="IntelliJ" data-filetype="svg">
-                <img src="img/logo/intellij.svg" alt="IntelliJ" width="32" height="32">
-            </span>
-            <span class="skill web-only" data-category="tools" data-skill="Eclipse" data-level="70" data-text="Eclipse" data-filetype="svg">
-                <img src="img/logo/eclipse.svg" alt="Eclipse" width="32" height="32">
-            </span>
-            <span class="skill web-only" data-category="tools" data-skill="AWS" data-level="10" data-text="AWS" data-filetype="svg">
-                <img src="img/logo/aws.svg" alt="AWS" width="32" height="32">
-            </span>
-            <span class="skill web-only" data-category="tools" data-skill="Serverless" data-level="5" data-text="Serverless" data-filetype="png">
-                <img src="img/logo/serverless.png" alt="Serverless" width="32" height="32">
-            </span>
-            <span class="skill web-only" data-category="tools" data-skill="Kubernetes" data-level="5" data-text="Kubernetes" data-filetype="svg">
-                <img src="img/logo/kubernetes.svg" alt="Kubernetes" width="32" height="32">
-            </span>
-            <span class="skill web-only" data-category="tools" data-skill="Postman" data-level="35" data-text="Postman" data-filetype="svg">
-                <img src="img/logo/postman.svg" alt="Postman" width="32" height="32">
-            </span>
-            <span class="skill web-only" data-category="tools" data-skill="Apache" data-level="40" data-text="Apache" data-filetype="svg">
-                <img src="img/logo/apache.svg" alt="Apache" width="32" height="32">
-            </span>
-            <span class="skill web-only" data-category="tools" data-skill="VMWare" data-level="50" data-text="VMWare" data-filetype="svg">
-                <img src="img/logo/vmware.svg" alt="VMWare" width="32" height="32">
-            </span>
-            <span class="skill web-only" data-category="design" data-skill="TDD" data-level="65" data-text="TDD" data-filetype="">
-                TDD
-            </span>
-            <span class="skill web-only" data-category="design" data-skill="BDD" data-level="45" data-text="BDD" data-filetype="">
-                BDD
-            </span>
-            <span class="skill web-only" data-category="design" data-skill="SOLID" data-level="40" data-text="SOLID" data-filetype="">
-                SOLID
-            </span>
-            <!-- To add a skill copy this block and replace by your info
-            Be careful, you need to use existing data category or create new ones in the skills.js file
-            <span class="skill web-only" data-category="design" data-skill="SOLID" data-level="40" data-text="SOLID" data-filetype="">
-                SOLID
-            </span>
-            -->
-        </div>
-    </section>
-
-    <!-- In the "experience" section -->
-    <section id="experience">
-        <h2 id="experience-title" data-en="Experience" data-fr="Exp&eacute;rience">Experience</h2>
-        <div class="experience-and-skills">
-            <div class="experience-list">
-                <div class="experience-item" data-skills="Kotlin, Spring, Vue.js, Java, PostgreSQL">
-                    <button class="experience-title" id="experience-heading-1" aria-expanded="false" aria-controls="experience-details-1" onclick="toggleExperience(this)"
-                            data-en="Full Stack Developer at Fairphone (Start Date &#8212; May 2023)"
-                            data-fr="D&#233;veloppeur Full Stack chez Fairphone (Date de d&#233;but &#8212; Mai 2023)">
-                        Full Stack Developer at Fairphone (Start Date &#8212; May 2023)
-                    </button>
-                    <div class="experience-details" id="experience-details-1" role="region" aria-labelledby="experience-heading-1" hidden>
-                        <ul>
-                            <li data-en="Develop internal applications (microservices) of the Fairphone IT landscape systems using Kotlin, Spring, Vue.js, Java, PostgreSQL" data-fr="D&#233;velopper des applications internes (microservices) du paysage informatique Fairphone en utilisant Kotlin, Spring, Vue.js, Java, PostgreSQL"></li>
-                            <li data-en="Troubleshoot code and process-level problems efficiently" data-fr="R&#233;soudre efficacement les probl&#232;mes de code et de processus"></li>
-                            <li data-en="Collaborate with internal stakeholders to identify business requirements and develop microservices or other applications to support those requirements" data-fr="Collaborer avec les parties prenantes internes pour identifier les besoins de l'entreprise et d&#233;velopper des microservices ou d'autres applications pour r&#233;pondre &#224; ces besoins"></li>
-                        </ul>
-                        <div class="experience-skills">
-                            <span class="skill experience-skill" data-category="backend">Kotlin</span>
-                            <span class="skill experience-skill" data-category="backend">Spring</span>
-                            <span class="skill experience-skill" data-category="frontend">Vue.js</span>
-                            <span class="skill experience-skill" data-category="backend">Java</span>
-                            <span class="skill experience-skill" data-category="backend">PostgreSQL</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="experience-item" data-skills="Angular, TypeScript, HTML, CSS, Spring, Java 11">
-                    <button class="experience-title" id="experience-heading-2" aria-expanded="false" aria-controls="experience-details-2" onclick="toggleExperience(this)"
-                            data-en="Full Stack Developer at KLEE GROUP (March 2022 &#8212; March 2023)"
-                            data-fr="D&#233;veloppeur Full Stack chez KLEE GROUP (Mars 2022 &#8212; Mars 2023)">
-                        Full Stack Developer at KLEE GROUP (March 2022 &#8212; March 2023)
-                    </button>
-                    <div class="experience-details" id="experience-details-2" role="region" aria-labelledby="experience-heading-2" hidden>
-                        <ul>
-                            <li data-en="Build front-end features using Angular 14, TypeScript, HTML, CSS, and develop back-end features with Spring, Java 11" data-fr="Construire des fonctionnalit&#233;s front-end en utilisant Angular 14, TypeScript, HTML, CSS, et d&#233;velopper des fonctionnalit&#233;s back-end avec Spring, Java 11"></li>
-                            <li data-en="Implement quality software best practices BDD to test, and fix bugs" data-fr="Mettre en &#339;uvre les meilleures pratiques de logiciel de qualit&#233; BDD pour tester et corriger les bugs"></li>
-                            <li data-en="Contribute effectively discussed complex topics in a Proxy Agile environment" data-fr="Contribuer efficacement &#224; discuter de sujets complexes dans un environnement Agile Proxy"></li>
-                            <li data-en="Engineer Spring/Angular solution to allow tracking and preventing vector-borne diseases, achieve by enabling 5000 users to track and record data through the web application" data-fr="Ing&#233;nieur en solution Spring/Angular pour permettre le suivi et la pr&#233;vention des maladies &#224; transmission vectorielle, r&#233;alis&#233; en permettant &#224; 5000 utilisateurs de suivre et d'enregistrer des donn&#233;es via l'application web"></li>
-                        </ul>
-                        <div class="experience-skills">
-                            <span class="skill experience-skill" data-category="frontend">Angular</span>
-                            <span class="skill experience-skill" data-category="backend">Java</span>
-                            <span class="skill experience-skill" data-category="backend">Spring</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="experience-item" data-skills="Angular 6, Spring, Smarty, Java 8, PHP 7.4, JavaScript, HTML5, CSS3">
-                    <button class="experience-title" id="experience-heading-3" aria-expanded="false" aria-controls="experience-details-3" onclick="toggleExperience(this)"
-                            data-en="Junior Full Stack Developer at SOPRA STERIA (September 2019&#8212;March 2022)"
-                            data-fr="D&#233;veloppeur Full Stack Junior chez SOPRA STERIA (Septembre 2019&#8212;Mars 2022)">
-                        Junior Full Stack Developer at SOPRA STERIA (September 2019&#8212;March 2022)
-                    </button>
-                    <div class="experience-details" id="experience-details-3" role="region" aria-labelledby="experience-heading-3" hidden>
-                        <ul>
-                            <li data-en="Collaborated in a fully remote and Agile environment with 3-week sprints while exercising CI/CD, pairing, code review, BDD to build, and ship new features from scratch using Angular 6, Spring, Smarty, Java 8, PHP 7.4, JavaScript, HTML5, CSS3" data-fr="Collabor&#233; dans un environnement enti&#232;rement distant et Agile avec des sprints de 3 semaines tout en exer&#231;ant CI/CD, pairing, code review, BDD pour construire et exp&#233;dier de nouvelles fonctionnalit&#233;s &#224; partir de z&#233;ro en utilisant Angular 6, Spring, Smarty, Java 8, PHP 7.4, JavaScript, HTML5, CSS3"></li>
-                            <!-- Add more list items here -->
-                        </ul>
-                        <div class="experience-skills">
-                            <span class="skill experience-skill" data-category="frontend">Angular</span>
-                            <span class="skill experience-skill" data-category="backend">Java</span>
-                            <span class="skill experience-skill" data-category="backend">Spring</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="experience-item" data-skills="Project Management, LEAN Management">
-                    <button class="experience-title" id="experience-heading-4" aria-expanded="false" aria-controls="experience-details-4" onclick="toggleExperience(this)"
-                            data-en="Engineer Project Manager at FPSA GROUPE (2016&#8212;2018)"
-                            data-fr="Ing&#233;nieur Chef de Projet chez FPSA GROUPE (2016&#8212;2018)">
-                        Engineer Project Manager at FPSA GROUPE (2016&#8212;2018)
-                    </button>
-                    <div class="experience-details" id="experience-details-4" role="region" aria-labelledby="experience-heading-4" hidden>
-                        <ul>
-                            <li data-en="Oversaw 20 automotive projects, led an international team with a budget of 4 million &#8364;" data-fr="A supervis&#233; 20 projets automobiles, dirig&#233; une &#233;quipe internationale avec un budget de 4 millions &#8364;"></li>
-                            <li data-en="Reinforced and drove successful practices of the company&#8217;s LEAN Management" data-fr="A renforc&#233; et conduit les pratiques r&#233;ussies du LEAN Management de l'entreprise"></li>
-                        </ul>
-                        <div class="experience-skills">
-                            <span class="skill experience-skill" data-category="tools">Project Management</span>
-                            <span class="skill experience-skill" data-category="tools">LEAN Management</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- To add an experience copy this block and replace by your info
-                <div class="experience-item" data-skills="Project Management, LEAN Management">
-                    <button class="experience-title" onclick="toggleExperience(this)"
-                            data-en="Engineer Project Manager at FPSA GROUPE (2016&#8212;2018)"
-                            data-fr="Ing&#233;nieur Chef de Projet chez FPSA GROUPE (2016&#8212;2018)">
-                        Engineer Project Manager at FPSA GROUPE (2016&#8212;2018)
-                    </button>
-                    <div class="experience-details">
-                        <ul>
-                            <li data-en="Oversaw 20 automotive projects, led an international team with a budget of 4 million &#8364;" data-fr="A supervis&#233; 20 projets automobiles, dirig&#233; une &#233;quipe internationale avec un budget de 4 millions &#8364;"></li>
-                            <li data-en="Reinforced and drove successful practices of the company&#8217;s LEAN Management" data-fr="A renforc&#233; et conduit les pratiques r&#233;ussies du LEAN Management de l'entreprise"></li>
-                        </ul>
-                        <div class="experience-skills">
-                            <span class="skill experience-skill" data-category="tools">Project Management</span>
-                            <span class="skill experience-skill" data-category="tools">LEAN Management</span>
-                        </div>
-                    </div>
-                </div>
-                -->
-            </div>
-        </div>
-    </section>
-
-    <!-- In the "education" section -->
-    <section id="education">
-        <h2 id="education-title">Education</h2>
-        <div class="education">
-            <div class="education-item">
-                <button class="education-title" id="education-heading-1" aria-expanded="false" aria-controls="education-details-1" onclick="toggleEducation(this)"
-                        data-en="Full Stack Boot camp - GROUPE ADAMING, Nantes, FR (2019)"
-                        data-fr="Formation Intensive Full Stack - GROUPE ADAMING, Nantes, FR (2019)">
-                    Full Stack Boot camp - GROUPE ADAMING, Nantes, FR (2019)
-                </button>
-                <!-- Hide this div initially with CSS -->
-                <div class="education-details" id="education-details-1" role="region" aria-labelledby="education-heading-1" hidden>
-                    <ul>
-                        <li data-en="UML" data-fr="UML"></li>
-                        <li data-en="JAVA, Spring" data-fr="JAVA, Spring"></li>
-                        <li data-en="JPA/ORM (Hibernate) and SQL (SGBD)" data-fr="JPA/ORM (hibernate) et SGBD (SQL)"></li>
-                        <li data-en="Front-end: HTML, CSS, Bootstrap, JavaScript/TypeScript, Angular 7" data-fr="Front end : HTML, CSS, Bootstrap, Javascript/Typescript, Angular 7"></li>
-                        <li data-en="JUNIT" data-fr="JUNIT"></li>
-                        <li data-en="Git/GitHub, Sonar, Jenkins, Maven" data-fr="Git/GitHub, Sonar, Jenkins, Maven"></li>
-                        <li data-en="IDE: Eclipse, Mysql Workbench" data-fr="IDE : Eclipse, Mysql Workbench"></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="education-item">
-                <button class="education-title" id="education-heading-2" aria-expanded="false" aria-controls="education-details-2" onclick="toggleEducation(this)"
-                        data-en="Polymer and Composites Engineer - &Eacute;COLE DES MINES DE DOUAI, Alen&ccedil;on, FR (2011-2016)"
-                        data-fr="Ing&eacute;nieur en Polym&egrave;res et Composites - &Eacute;COLE DES MINES DE DOUAI, Alen&ccedil;on, FR (2011-2016)">
-                    Polymer and Composites Engineer - &Eacute;COLE DES MINES DE DOUAI, Alen&ccedil;on, FR (2011-2016)
-                </button>
-                <!-- Hide this div initially with CSS -->
-                <div class="education-details" id="education-details-2" role="region" aria-labelledby="education-heading-2" hidden>
-                    <ul>
-                        <li data-en="Polymer and Composites Engineering" data-fr="Ing&#233;nierie polym&#232;re et composites"></li>
-                        <li data-en="HR Resource Management skills" data-fr="Comp&eacute;tences"></li>
-                        <li data-en="Industrial Organization methods (Lean Manufacturing, 5S, SMED, AMDEC, JIT, Takt-Time)" data-fr="M&#233;thode d'organisation industrielle (Lean Manufacturing, 5S, SMED, AMDEC, JIT, Takt-Time)"></li>
-                        <li data-en="Study of thermoplastic materials and their interactions with the environment" data-fr="&#201;tude des mat&#233;riaux thermoplastiques et de leurs interactions avec leurs environnements"></li>
-                        <li data-en="Rheology" data-fr="Rh&#233;ologie"></li>
-                        <li data-en="Material analysis methods" data-fr="M&#233;thodes d'analyse des mat&#233;riaux"></li>
-                        <li data-en="Design of thermoplastic tools and parts" data-fr="Conception d'outillages et de pi&#232;ces thermoplastique"></li>
-                        <li data-en="Thermoplastic injection tooling design" data-fr="Conception d'outillage d'injection plastique"></li>
-                        <li data-en="Adjustment of thermoplastic injection presses" data-fr="R&#233;glage de presse &#224; injecter thermoplastique"></li>
-                    </ul>
-                </div>
-            </div>
-            <!-- To add an eduction copy this block and replace by your info
-            <div class="education-item">
-                <button class="education-title" onclick="toggleEducation(this)"
-                        data-en="Polymer and Composites Engineer - &Eacute;COLE DES MINES DE DOUAI, Alen&ccedil;on, FR (2011-2016)"
-                        data-fr="Ing&eacute;nieur en Polym&egrave;res et Composites - &Eacute;COLE DES MINES DE DOUAI, Alen&ccedil;on, FR (2011-2016)">
-                    Polymer and Composites Engineer - &Eacute;COLE DES MINES DE DOUAI, Alen&ccedil;on, FR (2011-2016)
-                </button>
-                &lt;!&ndash; Hide this div initially with CSS &ndash;&gt;
-                <div class="education-details">
-                    <ul>
-                        <li data-en="Polymer and Composites Engineering" data-fr="Ing&#233;nierie polym&#232;re et composites"></li>
-                        <li data-en="HR Resource Management skills" data-fr="Comp&eacute;tences"></li>
-                        <li data-en="Industrial Organization methods (Lean Manufacturing, 5S, SMED, AMDEC, JIT, Takt-Time)" data-fr="M&#233;thode d'organisation industrielle (Lean Manufacturing, 5S, SMED, AMDEC, JIT, Takt-Time)"></li>
-                        <li data-en="Study of thermoplastic materials and their interactions with the environment" data-fr="&#201;tude des mat&#233;riaux thermoplastiques et de leurs interactions avec leurs environnements"></li>
-                        <li data-en="Rheology" data-fr="Rh&#233;ologie"></li>
-                        <li data-en="Material analysis methods" data-fr="M&#233;thodes d'analyse des mat&#233;riaux"></li>
-                        <li data-en="Design of thermoplastic tools and parts" data-fr="Conception d'outillages et de pi&#232;ces thermoplastique"></li>
-                        <li data-en="Thermoplastic injection tooling design" data-fr="Conception d'outillage d'injection plastique"></li>
-                        <li data-en="Adjustment of thermoplastic injection presses" data-fr="R&#233;glage de presse &#224; injecter thermoplastique"></li>
-                    </ul>
-                </div>
-            </div>
-            -->
-        </div>
-    </section>
-
-    <!-- In the "interests" section -->
-    <section id="interests">
-        <h2 id="interests-title"  data-en="Interests" data-fr="Int&eacute;r&ecirc;ts">Interests</h2>
-        <div class="interests">
-            <div class="interests-item">
-                <img src="img/interest/astro.png" alt="Astronomy" data-en="Astronomy" data-fr="Astronomie">
-                <p data-en="Astronomy" data-fr="Astronomie">Astronomy</p>
-            </div>
-            <div class="interests-item">
-                <img src="img/interest/squash.png" alt="Squash">
-                <p><a href="https://sportconnexions.com/en/squash/allinnsquash/12/Connect?userid=136216" target="_blank" data-en="Squash" data-fr="Squash">Squash</a></p>
-            </div>
-            <div class="interests-item">
-                <img src="img/interest/github.png" alt="GitHub">
-                <p><a href="https://github.com/Etienne-Boursault" target="_blank" data-en="GitHub" data-fr="GitHub">GitHub</a></p>
-            </div>
-            <div class="interests-item">
-                <img src="img/interest/gitlab.png" alt="GitLab">
-                <p><a href="https://gitlab.com/Etienne-Boursault" target="_blank" data-en="GitLab" data-fr="GitLab">GitLab</a></p>
-            </div>
-            <div class="interests-item">
-                <img src="img/interest/book.png" alt="Reading" data-en="Reading" data-fr="Lecture">
-                <p data-en="Reading" data-fr="Lecture">Reading</p>
-            </div>
-            <div class="interests-item">
-                <img src="img/interest/run.png" alt="Running" data-en="Running" data-fr="Course">
-                <p data-en="Running" data-fr="Course">Running</p>
-            </div>
-            <div class="interests-item">
-                <img src="img/interest/cook.png" alt="Cooking" data-en="Cooking" data-fr="Cuisine">
-                <p data-en="Cooking" data-fr="Cuisine">Cooking</p>
-            </div>
-            <div class="interests-item">
-                <img src="img/interest/travel.png" alt="Travelling" data-en="Travelling" data-fr="Voyage">
-                <p data-en="Travelling" data-fr="Voyage">Travelling</p>
-            </div>
-            <div class="interests-item">
-                <img src="img/interest/coffee.png" alt="Coffee" data-en="Coffee" data-fr="Caf&#233;">
-                <p data-en="Coffee" data-fr="Caf&#233;">Coffee</p>
-            </div>
-            <!-- To add an interest: copy this tile
-            <div class="interests-item">
-                <img src="img/interest/coffee.png" alt="Coffee" data-en="Coffee" data-fr="Caf&#233;">
-                <p data-en="Coffee" data-fr="Caf&#233;">Coffee</p>
-            </div>
-            -->
-        </div>
-    </section>
-
-    <div class="download-resume download-resume-en">
-                <a href="file/pdf/Etienne_Boursault-Resume.pdf" download>Download Resume (PDF)</a>
+  <section class="hero" aria-labelledby="titre">
+    <h1 class="noms" id="titre"><span class="g">Étienne</span> <span class="d">Boursault</span></h1>
+    <div class="duo">
+      <div class="g"><p class="mot-g"><span lang="fr">ingénieur</span><span lang="en">engineer</span></p><p class="sous-g"><span lang="fr">Polymères et composites</span><span lang="en">Polymers and composites</span> · 2011–2018</p></div>
+      <div class="d"><p class="mot-d"><span class="chev">&lt;</span><span lang="fr">développeur</span><span lang="en">developer</span><span class="chev">&gt;</span></p><p class="sous-d">full stack · <span lang="fr">depuis 2019</span><span lang="en">since 2019</span></p></div>
     </div>
-    <div class="download-resume download-resume-fr" hidden>
-        <a href="#" download>T&#233;l&#233;charger le CV (pas disponible pour le moment)</a>
+    <div class="scene" role="group" aria-label="Vue éclatée du parcours"></div>
+    <div class="pied">
+      <div class="detail g" aria-live="polite"></div>
+      <button class="eclater" type="button">Assembler</button>
+      <div class="detail d"></div>
     </div>
+    <div class="cartouche">
+      <div class="c-grille">
+        <div class="c c-2"><span lang="fr">Désignation</span><span lang="en">Role</span><p><span lang="fr">Développeur full stack</span><span lang="en">Full stack developer</span></p></div>
+        <div class="c c-2"><span lang="fr">En poste</span><span lang="en">Currently</span><p><span lang="fr">Fairphone, Amsterdam, depuis mai 2023</span><span lang="en">Fairphone, Amsterdam, since May 2023</span></p></div>
+        <div class="c c-2"><span lang="fr">Lieu</span><span lang="en">Based in</span><p><span lang="fr">Utrecht, Pays-Bas</span><span lang="en">Utrecht, the Netherlands</span></p></div>
+        <div class="c c-3"><span lang="fr">Parcours</span><span lang="en">Path</span><p><span lang="fr">ingénieur de 2011 à 2018, développeur depuis 2019</span><span lang="en">engineer from 2011 to 2018, developer since 2019</span></p></div>
+        <div class="c c-3"><span lang="fr">Langues</span><span lang="en">Languages</span><p><span lang="fr">français, anglais, espagnol, roumain ; néerlandais et vietnamien en cours d'apprentissage</span><span lang="en">French, English, Spanish, Romanian; learning Dutch and Vietnamese</span></p></div>
+      </div>
+      <div class="c-actions">
+        <a class="action principale" lang="fr" href="file/pdf/Etienne_Boursault-CV.pdf" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11m0 0-4-4m4 4 4-4M5 20h14"/></svg>Télécharger le CV (PDF)</a>
+        <a class="action principale" lang="en" href="file/pdf/Etienne_Boursault-Resume.pdf" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11m0 0-4-4m4 4 4-4M5 20h14"/></svg>Download the CV (PDF)</a>
+        <a class="action" href="mailto:etienne.boursault@live.fr"><span lang="fr">M'écrire</span><span lang="en">Email me</span></a>
+        <a class="action" href="https://www.linkedin.com/in/eboursault/" rel="noopener">LinkedIn</a>
+        <a class="action" href="https://github.com/Etienne-Boursault" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </section>
 
-    <div id="stillHereModal" class="modal">
-        <div class="modal-content">
-            <div class="name-container">
-                <img src="img/netflix/etienne_netflix_big.png" alt="Etienne" class="name-image-desktop">
-                <img src="img/netflix/etienne_netflix_mobile.png" alt="Etienne" class="name-image-mobile">
-            </div>
-            <h3 class="are-you-still-there" data-en="Are you still there?" data-fr="Toujours l&#224; ?">Are you still there?</h3>
-            <button id="yesBtn" class="keep-reading-btn" data-en="Keep reading" data-fr="Continuer &#224; lire">Keep reading</button>
-            <button id="noBtn" class="leaving-btn" data-en="Leaving" data-fr="Partir">Leaving</button>
-            <h3 id="leavingMessage" hidden data-en="Hope to see you soon!" data-fr="&#192; bient&#244;t !">Hope to see you soon!</h3>
-        </div>
+  <div id="contenu" class="sections">
+
+  <section class="section" id="projet" aria-labelledby="t-projet">
+    <p class="num"><span class="n">01 · </span><span lang="fr">PROJET EN VITRINE</span><span lang="en">FEATURED PROJECT</span></p>
+    <h2 id="t-projet">unebonnere.co</h2>
+    <div class="vitrine">
+      <a class="capture" href="https://unebonnere.co" rel="noopener" tabindex="-1" aria-hidden="true"><img src="img/unebonnere.jpg" width="1200" height="750" alt="" loading="lazy" decoding="async"></a>
+      <div class="txt">
+        <p lang="fr"><b>Une bonne reco</b> recense toutes les œuvres recommandées dans le podcast <i>Un bon moment</i>. Je l'ai conçu, développé et je l'héberge seul, depuis mai 2026.</p>
+        <p lang="en"><b>Une bonne reco</b> catalogues every work recommended on the French podcast <i>Un bon moment</i>. I designed, built and host it on my own, since May 2026.</p>
+        <p class="sous" lang="fr">Chaque épisode traverse une chaîne automatique, puis une relecture humaine :</p>
+        <p class="sous" lang="en">Each episode goes through an automated pipeline, then a human review:</p>
+        <ol class="chaine" lang="fr"><li>flux RSS</li><li>transcription Whisper</li><li>extraction par deux IA qui se recoupent</li><li>TMDB, Spotify, MusicBrainz</li><li>relecture</li><li>site statique</li></ol>
+        <ol class="chaine" lang="en"><li>RSS feed</li><li>Whisper transcription</li><li>extraction by two cross-checking AI models</li><li>TMDB, Spotify, MusicBrainz</li><li>review</li><li>static site</li></ol>
+        <dl class="chiffres">
+          <div><dt>955</dt><dd><span lang="fr">recommandations</span><span lang="en">recommendations</span></dd></div>
+          <div><dt>368</dt><dd><span lang="fr">œuvres</span><span lang="en">works</span></dd></div>
+          <div><dt>117</dt><dd><span lang="fr">épisodes</span><span lang="en">episodes</span></dd></div>
+          <div><dt><span lang="fr">8&nbsp;700+</span><span lang="en">8,700+</span></dt><dd><span lang="fr">tests automatisés</span><span lang="en">automated tests</span></dd></div>
+          <div><dt>WCAG AA</dt><dd><span lang="fr">contrôlé à chaque modification</span><span lang="en">checked on every change</span></dd></div>
+          <div><dt>48</dt><dd><span lang="fr">décisions d'architecture écrites</span><span lang="en">written architecture decisions</span></dd></div>
+        </dl>
+        <p class="impr-seul">unebonnere.co · github.com/Etienne-Boursault/Reco</p>
+        <p class="date"><span lang="fr">Chiffres relevés le 5 novembre 2026.</span><span lang="en">Figures as of 5 November 2026.</span></p>
+        <p class="liens"><a href="https://unebonnere.co" rel="noopener"><span lang="fr">Voir le site</span><span lang="en">Visit the site</span> →</a><a href="https://github.com/Etienne-Boursault/Reco" rel="noopener"><span lang="fr">Code source</span><span lang="en">Source code</span> →</a></p>
+      </div>
     </div>
+  </section>
+
+  <section class="section" id="experience" aria-labelledby="t-exp">
+    <p class="num"><span class="n">02 · </span><span lang="fr">PARCOURS</span><span lang="en">EXPERIENCE</span></p>
+    <h2 id="t-exp"><span lang="fr">Expérience</span><span lang="en">Experience</span></h2>
+    <ol class="postes">
+      <li class="poste dev now">
+        <p class="quand"><span lang="fr">mai 2023 → aujourd'hui</span><span lang="en">May 2023 → present</span></p>
+        <div class="quoi">
+          <h3>Fairphone <span class="ou">· Amsterdam</span></h3>
+          <p class="role"><span lang="fr">Développeur full stack</span><span lang="en">Full stack developer</span></p>
+          <p class="contexte" lang="fr">Fairphone conçoit des téléphones modulaires et réparables, avec des matériaux extraits de manière éthique et transparente.</p>
+          <p class="contexte" lang="en">Fairphone designs modular, repairable phones, made with ethically and transparently sourced materials.</p>
+          <ul lang="fr">
+            <li>Dans une équipe de quatre (analyste, responsable technique, deux développeurs), je développe et maintiens la dizaine de microservices qui recueillent les données des téléphones et les mettent à disposition.</li>
+            <li>Ils servent quatre publics : les propriétaires (garantie, déverrouillage du téléphone), le service client (création de tickets), les réparateurs, et les applications qui analysent la qualité et la durée de vie des appareils.</li>
+            <li>Migration de l'ensemble vers Spring Boot 3.5, sans interruption de service.</li>
+          </ul>
+          <ul lang="en">
+            <li>In a team of four (analyst, tech lead, two developers), I build and maintain the ten or so microservices that collect data from the phones and make it available.</li>
+            <li>They serve four audiences: phone owners (warranty, unlocking their phone), customer support (ticket creation), repairers, and the applications that analyse device quality and lifespan.</li>
+            <li>Migrated the whole stack to Spring Boot 3.5 with zero downtime.</li>
+          </ul>
+          <p class="pile">Kotlin · Spring Boot · Vue.js · TypeScript · PostgreSQL</p>
+        </div>
+      </li>
+      <li class="poste dev">
+        <p class="quand"><span lang="fr">mars 2022 → mars 2023</span><span lang="en">Mar 2022 → Mar 2023</span></p>
+        <div class="quoi">
+          <h3>Klee Group <span class="ou">· Nantes</span></h3>
+          <p class="role"><span lang="fr">Développeur full stack</span><span lang="en">Full stack developer</span></p>
+          <ul lang="fr">
+            <li>Application Spring et Angular de suivi et de prévention des maladies à transmission vectorielle, utilisée par 5&nbsp;000 personnes.</li>
+            <li>Front en Angular 14 et TypeScript, back en Spring et Java 11 ; tests écrits en BDD.</li>
+          </ul>
+          <ul lang="en">
+            <li>Spring and Angular app to track and prevent vector-borne diseases, used by 5,000 people.</li>
+            <li>Front end in Angular 14 and TypeScript, back end in Spring and Java 11; tests written in BDD.</li>
+          </ul>
+          <p class="pile">Angular 14 · TypeScript · Spring · Java 11 · BDD</p>
+        </div>
+      </li>
+      <li class="poste dev">
+        <p class="quand"><span lang="fr">sept. 2019 → mars 2022</span><span lang="en">Sep 2019 → Mar 2022</span></p>
+        <div class="quoi">
+          <h3>Sopra Steria <span class="ou">· Nantes</span></h3>
+          <p class="role"><span lang="fr">Développeur full stack</span><span lang="en">Full stack developer</span></p>
+          <ul lang="fr">
+            <li>Application Java 8, Spring et Angular donnant à plus de 3&nbsp;millions de clients l'accès à leur consommation d'énergie, sans interruption de service.</li>
+            <li>Intranet affichant les données de 1,4&nbsp;million de km de réseau électrique (PHP 7.4, Smarty).</li>
+            <li>Traitements de grands volumes de données sous Oracle et SQL.</li>
+            <li>Équipe entièrement à distance, sprints de trois semaines, revue de code, binômage, intégration continue. Formations internes animées.</li>
+          </ul>
+          <ul lang="en">
+            <li>Java 8, Spring and Angular app giving over 3 million customers access to their energy use, with zero downtime.</li>
+            <li>Intranet displaying data for 1.4 million km of power grid (PHP 7.4, Smarty).</li>
+            <li>Processing of large datasets with Oracle and SQL.</li>
+            <li>Fully remote team, three-week sprints, code review, pairing, continuous integration. Ran internal training sessions.</li>
+          </ul>
+          <p class="pile">Java 8 · Spring · Angular · PHP 7.4 · Oracle</p>
+        </div>
+      </li>
+      <li class="couture-poste">
+        <p class="quand">2019</p>
+        <p class="quoi"><b>Groupe Adaming</b> · <span lang="fr">formation intensive full stack, Nantes. La couche d'accrochage entre les deux métiers.</span><span lang="en">full stack bootcamp, Nantes. The bonding layer between the two trades.</span></p>
+      </li>
+      <li class="poste ing">
+        <p class="quand">2016 → 2018</p>
+        <div class="quoi">
+          <h3>FPSA Groupe <span class="ou">· Timișoara, <span lang="fr">Roumanie</span><span lang="en">Romania</span></span></h3>
+          <p class="role"><span lang="fr">Ingénieur chef de projet</span><span lang="en">Engineering project manager</span></p>
+          <ul lang="fr">
+            <li>20&nbsp;projets de pièces automobiles injectées, une équipe internationale, 4&nbsp;M€ de budget.</li>
+            <li>Déploiement des pratiques de lean management de l'entreprise.</li>
+          </ul>
+          <ul lang="en">
+            <li>20 injection-moulded automotive part projects, an international team, a €4M budget.</li>
+            <li>Rolled out the company's lean management practices.</li>
+          </ul>
+        </div>
+      </li>
+      <li class="poste ing">
+        <p class="quand">2013 → 2016</p>
+        <div class="quoi">
+          <h3>Aptar</h3>
+          <p class="role"><span lang="fr">Ingénieur méthodes, en alternance avec l'ISPA</span><span lang="en">Methods engineer, work-study with ISPA</span></p>
+        </div>
+      </li>
+      <li class="poste ing">
+        <p class="quand">2011 → 2013</p>
+        <div class="quoi">
+          <h3>Cooper Standard <span class="ou">· Rennes</span></h3>
+          <p class="role"><span lang="fr">Technicien d'injection, en alternance avec l'ISPA</span><span lang="en">Injection moulding technician, work-study with ISPA</span></p>
+          <ul lang="fr"><li>Atelier d'injection thermoplastique pour l'automobile.</li></ul>
+          <ul lang="en"><li>Thermoplastic injection moulding shop for the automotive industry.</li></ul>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <section class="section" id="ia" aria-labelledby="t-ia">
+    <p class="num"><span class="n">03 · </span><span lang="fr">L'IA DANS MA PRATIQUE</span><span lang="en">AI IN MY PRACTICE</span></p>
+    <h2 id="t-ia"><span lang="fr">Trois usages au quotidien</span><span lang="en">Three everyday uses</span></h2>
+    <div class="usages">
+      <article>
+        <h3><span lang="fr">Agents de développement</span><span lang="en">Coding agents</span></h3>
+        <p lang="fr">Claude Code au quotidien, encadré par des règles et des compétences écrites pour chaque projet, des relectures automatiques et des sous-agents spécialisés.</p>
+        <p lang="en">Claude Code every day, framed by rules and skills written for each project, automated reviews and specialised sub-agents.</p>
+      </article>
+      <article>
+        <h3><span lang="fr">Extraction fiable par LLM</span><span lang="en">Reliable LLM extraction</span></h3>
+        <p lang="fr">Deux modèles de fournisseurs différents se recoupent, et un humain tranche quand ils divergent. C'est le cœur d'unebonnere.co.</p>
+        <p lang="en">Two models from different providers cross-check each other, and a human decides when they disagree. It is the core of unebonnere.co.</p>
+      </article>
+      <article>
+        <h3><span lang="fr">Assistant auto-hébergé</span><span lang="en">Self-hosted assistant</span></h3>
+        <p lang="fr">Un assistant personnel qui tourne chez moi, avec ses propres outils. Celui qui lit les mails n'a aucun moyen d'agir : un message piégé ne peut rien déclencher.</p>
+        <p lang="en">A personal assistant running at home, with its own tools. The one that reads email has no way to act, so a malicious message cannot trigger anything.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="competences" aria-labelledby="t-comp">
+    <p class="num"><span class="n">04 · </span><span lang="fr">COMPÉTENCES</span><span lang="en">SKILLS</span></p>
+    <h2 id="t-comp"><span lang="fr">Des deux côtés de la couture</span><span lang="en">On both sides of the seam</span></h2>
+    <div class="deux-cotes">
+      <div class="cote-ing">
+        <h3><span lang="fr">Côté ingénieur</span><span lang="en">Engineer side</span></h3>
+        <dl>
+          <dt><span lang="fr">Injection thermoplastique</span><span lang="en">Thermoplastic injection moulding</span></dt><dd><span lang="fr">conception de pièces et de moules, réglage de presse</span><span lang="en">part and mould design, press setup</span></dd>
+          <dt><span lang="fr">Matériaux</span><span lang="en">Materials</span></dt><dd><span lang="fr">thermoplastiques et composites, rhéologie, méthodes d'analyse</span><span lang="en">thermoplastics and composites, rheology, analysis methods</span></dd>
+          <dt>Industrialisation</dt><dd><span lang="fr">lean manufacturing, 5S, SMED, AMDEC, juste-à-temps</span><span lang="en">lean manufacturing, 5S, SMED, FMEA, just-in-time</span></dd>
+        </dl>
+      </div>
+      <div class="cote-dev">
+        <h3><span class="chev">&lt;</span><span lang="fr">côté développeur</span><span lang="en">developer side</span><span class="chev">/&gt;</span></h3>
+        <dl>
+          <dt><span lang="fr">langages</span><span lang="en">languages</span></dt><dd>Kotlin, Java, TypeScript, JavaScript, Python, SQL, PHP</dd>
+          <dt>back-end</dt><dd>Spring Boot, JPA / Hibernate, <span lang="fr">API REST</span><span lang="en">REST APIs</span>, microservices, PostgreSQL, Oracle</dd>
+          <dt>front-end</dt><dd>Vue.js, Angular, Astro, RxJS, HTML, CSS</dd>
+          <dt><span lang="fr">ia</span><span lang="en">ai</span></dt><dd>Claude Code, <span lang="fr">API Anthropic et OpenAI</span><span lang="en">Anthropic and OpenAI APIs</span>, Whisper</dd>
+          <dt><span lang="fr">outillage</span><span lang="en">tooling</span></dt><dd>Git, Docker, GitHub Actions, Jenkins, SonarQube, Linux</dd>
+          <dt><span lang="fr">méthodes</span><span lang="en">practices</span></dt><dd>TDD, BDD, <span lang="fr">décisions d'architecture écrites</span><span lang="en">written architecture decisions</span>, Scrum</dd>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="formation" aria-labelledby="t-form">
+    <p class="num"><span class="n">05 · </span><span lang="fr">FORMATION ET LANGUES</span><span lang="en">EDUCATION AND LANGUAGES</span></p>
+    <h2 id="t-form" class="sr"><span lang="fr">Formation et langues</span><span lang="en">Education and languages</span></h2>
+    <div class="colonnes">
+      <div>
+        <h3><span lang="fr">Formation</span><span lang="en">Education</span></h3>
+        <ul class="liste-dates">
+          <li><b>2019</b><span><span lang="fr">Formation intensive full stack, Groupe Adaming, Nantes</span><span lang="en">Full stack bootcamp, Groupe Adaming, Nantes</span></span></li>
+          <li><b>2011 → 2016</b><span><span lang="fr">Ingénieur en polymères et composites, ISPA / École des Mines de Douai, Alençon. En alternance, cinq ans.</span><span lang="en">Polymer and composites engineering degree, ISPA / École des Mines de Douai, Alençon. Five-year work-study programme.</span></span></li>
+        </ul>
+      </div>
+      <div>
+        <h3><span lang="fr">Langues</span><span lang="en">Languages</span></h3>
+        <ul class="langues" lang="fr">
+          <li><b>Français</b> langue maternelle</li><li><b>Anglais</b> bilingue</li><li><b>Espagnol</b> courant</li><li><b>Roumain</b> intermédiaire</li><li><b>Néerlandais</b> débutant</li><li><b>Vietnamien</b> élémentaire (A2), cours depuis 2024</li>
+        </ul>
+        <ul class="langues" lang="en">
+          <li><b>French</b> native</li><li><b>English</b> bilingual</li><li><b>Spanish</b> fluent</li><li><b>Romanian</b> intermediate</li><li><b>Dutch</b> beginner</li><li><b>Vietnamese</b> elementary (A2), taking lessons since 2024</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="loisirs" aria-labelledby="t-lois">
+    <p class="num"><span class="n">06 · </span><span lang="fr">EN DEHORS DU CODE</span><span lang="en">OUTSIDE OF CODE</span></p>
+    <h2 id="t-lois" class="sr"><span lang="fr">En dehors du code</span><span lang="en">Outside of code</span></h2>
+    <p class="loisirs" lang="fr">Mon chien, à sortir tous les jours ; l'impression 3D (du thermoplastique, encore) ; squash, course à pied, astronomie, lecture, cuisine, voyages, café.</p>
+    <p class="loisirs" lang="en">My dog, who needs walking every day; 3D printing (thermoplastics again); squash, running, astronomy, reading, cooking, travel, coffee.</p>
+  </section>
+
+  <section class="section contact" id="contact" aria-labelledby="t-contact">
+    <p class="num"><span class="n">07 · </span>CONTACT</p>
+    <h2 id="t-contact"><span lang="fr">Une question, un poste, un projet ?</span><span lang="en">A question, a role, a project?</span></h2>
+    <p><span lang="fr">Le plus simple est un mail :</span><span lang="en">Email is the easiest way:</span> <a class="mail" href="mailto:etienne.boursault@live.fr">etienne.boursault@live.fr</a></p>
+    <p class="liens"><a href="https://www.linkedin.com/in/eboursault/" rel="noopener">LinkedIn →</a><a href="https://github.com/Etienne-Boursault" rel="noopener">GitHub →</a></p>
+  </section>
+
+  </div>
 </main>
 
-<footer>
-    <section id="contact">
-        <h2 data-en="Contact" data-fr="Coordonn&eacute;es">Contact</h2>
-        <p data-en="If you have any questions or would like to get in touch, feel free to email me at "
-           data-fr="Si vous avez des questions ou souhaitez me contacter, merci de m'envoyer un mail &#224; ">
-            If you have any questions or would like to get in touch, feel free to email me at
-        </p>
-        <p>
-            <a href="mailto:etienne.boursault@live.fr">etienne.boursault@live.fr</a>.
-        </p>
-        <p data-en="&copy; 2023 Etienne Boursault. All rights reserved."
-           data-fr="&copy; 2023 Etienne Boursault. Tous droits r&#233;serv&#233;s">
-            &copy; 2023 Etienne Boursault. All rights reserved.
-        </p>
-        <!-- LinkedIn Logo and Link -->
-        <a href="https://www.linkedin.com/in/eboursault/" target="_blank" id="linkedin-logo">
-            <img src="img/social/linkedin.png" alt="LinkedIn Logo" />
-        </a>
-    </section>
+<footer class="pied-page">
+  <p>© 2026 Étienne Boursault · <span lang="fr">Site fait à la main, sans framework</span><span lang="en">Handmade, no framework</span> · <a href="https://github.com/Etienne-Boursault/CV" rel="noopener"><span lang="fr">Code source sur GitHub</span><span lang="en">Source code on GitHub</span></a></p>
 </footer>
 </body>
 </html>
