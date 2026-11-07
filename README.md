@@ -1,7 +1,7 @@
 <h1 align="center">engineer | &lt;developer&gt;</h1>
 
 <p align="center">
-  The CV of Étienne Boursault, drawn as an exploded view.<br>
+  The CV of Etienne Boursault, drawn as an exploded view.<br>
   <a href="https://etienne-boursault.github.io/CV/"><b>etienne-boursault.github.io/CV</b></a>
   &nbsp;·&nbsp; <a href="file/pdf/Etienne_Boursault-Resume.pdf">PDF (English)</a>
   &nbsp;·&nbsp; <a href="file/pdf/Etienne_Boursault-CV.pdf">PDF (français)</a>
@@ -63,7 +63,7 @@ Pushing to `main` publishes the site through GitHub Pages.
 
 ## Version française
 
-Le CV d'Étienne Boursault, dessiné en vue éclatée : [etienne-boursault.github.io/CV](https://etienne-boursault.github.io/CV/).
+Le CV d'Etienne Boursault, dessiné en vue éclatée : [etienne-boursault.github.io/CV](https://etienne-boursault.github.io/CV/).
 
 **L'idée.** J'ai été ingénieur en polymères de 2011 à 2018 (injection thermoplastique, puis pilotage de projets automobiles), et je suis développeur full stack depuis 2019. Le site raconte ce parcours comme un ingénieur le dessinerait : **un stratifié composite en vue éclatée**, un pli par poste.
 - Une **couture** partage la page : à gauche, la lecture d'ingénieur (papier, hachures, orientation des plis) ; à droite, la lecture de développeur (couleurs d'éditeur, technologies, noms de fonctions).

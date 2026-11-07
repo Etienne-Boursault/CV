@@ -1,4 +1,4 @@
-// CV d'Étienne Boursault : vue éclatée du parcours, langue, thème, son et menu.
+// CV d'Etienne Boursault : vue éclatée du parcours, langue, thème, son et menu.
 // Aucune dépendance. Les ressorts suivent le modèle d'Apple (amortissement + réponse) :
 // toute animation part de la valeur affichée et peut être reprise en main à tout instant.
 (() => {
@@ -11,7 +11,7 @@
   const memoriser = (cle, val) => { try { localStorage.setItem(cle, val); } catch (e) { /* stockage indisponible : le choix vaut pour la visite */ } };
 
   const TEXTES = {
-    titre: { fr: "Étienne Boursault · Développeur full stack", en: "Étienne Boursault · Full stack developer" },
+    titre: { fr: "Etienne Boursault · Développeur full stack", en: "Etienne Boursault · Full stack developer" },
     description: {
       fr: "Développeur full stack chez Fairphone à Amsterdam (Kotlin, Vue.js, TypeScript), basé à Utrecht. Ingénieur en polymères et composites de 2011 à 2018, spécialisé en injection thermoplastique ; développeur depuis 2019.",
       en: "Full stack developer at Fairphone in Amsterdam (Kotlin, Vue.js, TypeScript), based in Utrecht. Polymer and composites engineer from 2011 to 2018, specialised in thermoplastic injection moulding; developer since 2019."
